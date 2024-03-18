@@ -24,9 +24,9 @@ public class MainAlgOperations {
         float res = 0f;
         if (n2 != 0){
             res = n1/n2;
-            System.out.println("devision result is: " + res);
+            System.out.println("division result is: " + res);
         } else {
-            System.out.println("devision by 0!");
+            System.out.println("division by 0!");
         }
         return res;
     }
