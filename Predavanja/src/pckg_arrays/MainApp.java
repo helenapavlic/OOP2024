@@ -1,11 +1,16 @@
 package pckg_arrays;
 
+import java.util.Scanner;
+
 public class MainApp {
     private static int value;
     private static String name;
-    private static String[] names;
+    private static String[] names = new String[5];
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+
+        System.out.println("------------------- lista sa int --------------------");
 //        alociranje memorije za 10 elemenata za tip int
 //        inicijaliziran sa defaultnim vrijednostima
         int[] ints = new int[10];
@@ -26,9 +31,17 @@ public class MainApp {
 
         System.out.println("third element in fst arr: " + ints[3]);
 
+        System.out.println("------------------ lista sa imenima ------------------------");
+
 //        promjena promjene imena
         names = new String[10];
         changeElement(names,4);
+
+//        testiranje liste sa imenima
+
+        populateStringNames(names);
+        listElements(names);
+
     }
 
     private static void changeElement(String[] names, int indx){
@@ -40,6 +53,24 @@ public class MainApp {
             System.out.println("Uspješna promjena imena");
         } else {
             System.out.println("index van liste");
+        }
+    }
+
+    private static void populateStringNames(String[] namesAgain){
+        int cnt = 0;
+        while (cnt <= namesAgain.length-1){
+            System.out.print("Unesi ime: ");
+            String name = scanner.nextLine();
+            namesAgain[cnt] = name;
+            cnt++;
+        }
+        System.out.println("Added names");
+    }
+
+    private static void listElements(String[] names){
+        System.out.println("------------------------");
+        for (String name : names){
+            System.out.println("name: " + name);
         }
     }
 }
