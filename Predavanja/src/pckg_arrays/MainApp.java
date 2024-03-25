@@ -1,5 +1,6 @@
 package pckg_arrays;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MainApp {
@@ -10,6 +11,7 @@ public class MainApp {
 
     public static void main(String[] args) {
 
+/*
         System.out.println("------------------- lista sa int --------------------");
 //        alociranje memorije za 10 elemenata za tip int
 //        inicijaliziran sa defaultnim vrijednostima
@@ -36,12 +38,21 @@ public class MainApp {
 //        promjena promjene imena
         names = new String[10];
         changeElement(names,4);
-
-//        testiranje liste sa imenima
+        testiranje liste sa imenima
 
         populateStringNames(names);
         listElements(names);
+*/
 
+
+
+        int[] arr1 = {23,56,78,0,-10,45,123};
+//        kopija prvog niza u punoj duljini -> sada su ova dva niza dva različita objekta sa istim sadržajem
+        int[] arr2 = Arrays.copyOf(arr1,arr1.length+1); // povećava niz, novi obj, može ga i smanjit
+        int[] arr3 = Arrays.copyOfRange(arr1,2,5);
+        System.out.println(Arrays.toString(arr1));
+        System.out.println(Arrays.toString(arr2));
+        System.out.println(Arrays.toString(arr3));
     }
 
     private static void changeElement(String[] names, int indx){
