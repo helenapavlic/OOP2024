@@ -130,7 +130,6 @@ public class ArraysPractice {
 
 
     private static ArrayList<Integer> removeDuplicates(int[] array) {
-        int[] arrayWithoutDuplicates = new int[10];
         int temp;
         ArrayList<Integer> arr = new ArrayList<>();
 
@@ -143,15 +142,41 @@ public class ArraysPractice {
         return arr;
     }
 
-    private static int[] mergeIntArrays(int[] sortedArr, int[] sortedArr2) {
-        int lenOfArr = sortedArr.length + sortedArr2.length;
+    private static int[] mergeIntArrays(int[] firstArray, int[] sndArray) {
+
+/*
+        Kreirajte rezultirajući niz koji će biti dovoljno velik da primi sve elemente oba ulazna niza.
+                Koristite dva indeksa, jedan za svaki ulazni niz, i prolazite kroz oba niza paralelno.
+                U svakom koraku usporedite elemente na trenutnim pozicijama u oba niza.
+        Dodajte manji od dva trenutna elementa u rezultirajući niz i povećajte odgovarajući indeks tog niza.
+                Ponavljajte korake 3 i 4 sve dok ne prođete kroz sve elemente u oba niza.
+        Ako postoji preostali element u jednom od nizova, dodajte preostale elemente u rezultirajući niz.
+*/
+
+        int[] sortedArray = new int[firstArray.length + sndArray.length];
+        int indexOfFirstArray = 0;
+        int indexOfSndArray = 0;
+
+        for (int i = 0; i <  firstArray.length; i++) {
+            for (int j = 0; j < sndArray.length; j++) {
+                if (firstArray[i] > sndArray[i]){
+
+                }
+
+            }
+
+        }
+
+
+
+        int lenOfArr = firstArray.length + sndArray.length;
         int[] fullArray = new int[lenOfArr];
         int position = 0;
-        for (int element : sortedArr) {
+        for (int element : firstArray) {
             fullArray[position] = element;
             position++;
         }
-        for (int element : sortedArr2) {
+        for (int element : sndArray) {
             fullArray[position] = element;
             position++;
         }
