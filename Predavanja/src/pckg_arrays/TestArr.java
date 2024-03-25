@@ -10,8 +10,8 @@ public class TestArr {
 
         AUX_CLS.printIntArray(arr);
 
-//        int[] newArrFromUser = AUX_CLS.populateArrayWithInput(3);
-//        AUX_CLS.printIntArray(newArrFromUser);
+        int[] newArrFromUser = AUX_CLS.populateArrayWithInput(3);
+        AUX_CLS.printIntArray(newArrFromUser);
 
         String[] strArray = {"Vasa", "vana plurium" , "sonant"};
         String rez = AUX_CLS.connectStringFromArray(strArray);
@@ -26,8 +26,6 @@ public class TestArr {
         int[][] arr2D = AUX_CLS.generate2DArray(4,5);
         //System.out.println(Arrays.deepToString(arr2D));
         AUX_CLS.print2Darr(arr2D);
-
-
 
     }
 }
