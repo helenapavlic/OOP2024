@@ -1,18 +1,13 @@
 package pckg_UML;
 
-public class Student extends User{
+public class Student extends Person{
 
-
-    public Student(String userName, String password, String mail) {
-        super(userName, password, mail);
+    public Student(String name, String surname) {
+        super(name, surname);
     }
 
-    @Override
-    public boolean activateAccount() {
-        return super.activateAccount();
+    public void askQuestions() {
+        System.out.println("student: " + this.name + " ask questions...");
     }
 
-    public int getExam(String course){
-        return 5;
-    }
 }

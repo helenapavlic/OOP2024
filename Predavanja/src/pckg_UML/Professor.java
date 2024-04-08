@@ -1,13 +1,19 @@
 package pckg_UML;
 
-public class Professor extends User{
+public class Professor extends Person{
+    private Student student;
 
-//    usmjerena socijacija -> klasa student može pristupiti elementima klase profesor
-//    prof ne može pristupili elementima klase student
+    public Professor(String name, String surname) {
+        super(name, surname);
+    }
 
+//    setters za studenta -> asocijacila, kompozicija veza
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 
-
-    public Professor(String userName, String password, String mail) {
-        super(userName, password, mail);
+    public void performConsultation(){
+        System.out.println(this.getClass().getSimpleName() + "gives consultation to student ");
+        student.askQuestions();
     }
 }
