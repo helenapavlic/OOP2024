@@ -1,17 +1,30 @@
 package vjezba4_zad1;
-import java.util.Arrays;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Haker {
 
-    Semafor smf;
-    private String[] stNovo = new String[3];
-    private int cnt;
+    private Semafor semafor; //primjer za kompoziciju
 
-    public Haker(Semafor semafor){
-        this.smf = semafor;
-        System.out.println("Preuzeo kontrolu nad: " + smf.toString());
+    public Haker(){
+
     }
 
+    public Haker(Semafor semafor){
+        this.semafor = semafor;
+    }
 
+    public Semafor getSemafor() {
+        return semafor;
+    }
+
+    public void setSemafor(Semafor semafor) {
+        this.semafor = semafor;
+    }
+
+    public void changeSemaforCode(String codeNew){
+        char[] chars = codeNew.toCharArray();
+        semafor.setZeleno(String.valueOf(chars[0]));
+        semafor.setZuto(String.valueOf(chars[1]));
+        semafor.setCrveno(String.valueOf(chars[2]));
+
+    }
 }

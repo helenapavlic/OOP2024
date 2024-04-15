@@ -11,14 +11,14 @@ public class Semafor {
     private String code;
     private static final String[] CODES = {"100", "010", "001"};
 
-    public Semafor(){
+    public Semafor() {
         this.crveno = "1";
         this.zuto = "0";
         this.zeleno = "0";
         this.code = this.zeleno + this.zuto + this.crveno;
     }
 
-    public Semafor(String zeleno, String zuto, String crveno){
+    public Semafor(String zeleno, String zuto, String crveno) {
         this.zeleno = zeleno;
         this.zuto = zuto;
         this.crveno = crveno;
@@ -49,37 +49,37 @@ public class Semafor {
         this.zeleno = zeleno;
     }
 
-    private boolean checkCode(String code){
-        for (int i = 0; i < CODES.length; i++) {
-            if (code.equals(CODES[i])){
+    private boolean checkCode() {
+        for (String elCode : CODES) {
+            if (code.equals(elCode)) {
                 return true;
             }
         }
         return false;
     }
 
-    public void giveSemaforStatus(String code){
-        if (checkCode(code)){
-            if (code.equals(CODES[0])){
-                System.out.println("zeleno svjetlo -> prolaz");
-            } else if (code.equals(CODES[1])) {
-                System.out.println("zuto svjetlo -> oprez");
-            } else if (code.equals(CODES[2])){
-                System.out.println("crveno svjetlo -> stani");
-            }
-        } else {
-            System.out.println("neispravno stanje -> treptece zuto");
-            setZeleno("0");
-            setZuto("1");
-            setCrveno("0");
-        }
-    }
 
-    public void putSemaforInWork(){
-        int cnt = 0;
-        while (cnt < 10){
-            //giveSemaforStatus();
-            cnt++;
+    public void giveSemaforStatus() {
+        if (checkCode()) {
+            switch (code) {
+                case "100":
+                    System.out.println("prolaz");
+                    break;
+                case "010":
+                    System.out.println("oprez");
+                    break;
+
+                case "001":
+
+                    System.out.println("stoj");
+                    break;
+
+                default:
+                    System.out.println("greska koja nikad nece biti..");
+            }
+
+        } else {
+            System.out.println("Pogrešan kod semafora - koristite novi kod!");
         }
     }
 
@@ -91,5 +91,16 @@ public class Semafor {
                 ", zeleno='" + zeleno + '\'' +
                 ", code='" + code + '\'' +
                 '}';
+    }
+
+    public void putSemaforInWork() {
+        int cnt = 0;
+        while (cnt < 10) {
+            giveSemaforStatus();
+            int idx = (cnt + 1) % 3;
+            System.out.println(idx);
+            this.code = CODES[idx];
+            cnt++;
+        }
     }
 }
