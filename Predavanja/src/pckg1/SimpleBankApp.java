@@ -1,8 +1,9 @@
 package pckg1;
+
 public class SimpleBankApp {
     public static void main(String[] args) {
-        Komitent kom1 = new Komitent("Paško","fizička");
-        Komitent kom2 = new Komitent("Comp2","pravna");
+        Komitent kom1 = new Komitent("Paško", "fizička");
+        Komitent kom2 = new Komitent("Comp2", "pravna");
 
         kom1.inspectMoneyState();
         kom2.inspectMoneyState();

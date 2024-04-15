@@ -8,14 +8,14 @@ public class Student {
     private String university;
     private static int cntID = 100;
 
-    public Student(String name, String surname){
+    public Student(String name, String surname) {
         this.name = name;
         this.surname = surname;
         System.out.println("name is: " + name);
         id = cntID++;
     }
 
-    public Student(String name, String surname, String university){
+    public Student(String name, String surname, String university) {
         this(name, surname);
         this.university = university;
         this.id = cntID++;
@@ -49,7 +49,7 @@ public class Student {
         this.university = university;
     }
 
-    public Hlace operiHlace(Hlace hlace){
+    public Hlace operiHlace(Hlace hlace) {
         System.out.println("Student pere hlace...");
         hlace.setClear();
         return hlace;

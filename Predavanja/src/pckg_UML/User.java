@@ -15,11 +15,11 @@ public class User {
         this.mail = mail;
     }
 
-    public boolean activateAccount(){
+    public boolean activateAccount() {
         return true;
     }
 
-    public boolean login(String passwd, String userName){
+    public boolean login(String passwd, String userName) {
         return false;
     }
 

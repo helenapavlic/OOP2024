@@ -5,7 +5,7 @@ public class User {
     private int id;
     private static int cntId = 10;
 
-    public User(String userName){
+    public User(String userName) {
         this.userName = userName;
         this.id = cntId++;
     }
@@ -18,12 +18,12 @@ public class User {
                 '}';
     }
 
-    public void showHashCodeAsHex(){
+    public void showHashCodeAsHex() {
         System.out.println(this.getClass().getSimpleName() + "@" + Integer.toHexString(this.hashCode()));
     }
 
 
-    public String getUserName(){
+    public String getUserName() {
         return userName;
     }
 

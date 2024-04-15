@@ -45,20 +45,19 @@ public class MainApp {
 */
 
 
-
-        int[] arr1 = {23,56,78,0,-10,45,123};
+        int[] arr1 = {23, 56, 78, 0, -10, 45, 123};
 //        kopija prvog niza u punoj duljini -> sada su ova dva niza dva različita objekta sa istim sadržajem
-        int[] arr2 = Arrays.copyOf(arr1,arr1.length+1); // povećava niz, novi obj, može ga i smanjit
-        int[] arr3 = Arrays.copyOfRange(arr1,2,5);
+        int[] arr2 = Arrays.copyOf(arr1, arr1.length + 1); // povećava niz, novi obj, može ga i smanjit
+        int[] arr3 = Arrays.copyOfRange(arr1, 2, 5);
         System.out.println(Arrays.toString(arr1));
         System.out.println(Arrays.toString(arr2));
         System.out.println(Arrays.toString(arr3));
     }
 
-    private static void changeElement(String[] names, int indx){
+    private static void changeElement(String[] names, int indx) {
 //        String[] je složeni tip podataka -> pass by reference
 //        nije potrebno imati return jer mijenjaju isti objekt
-        if (indx <= names.length-1){
+        if (indx <= names.length - 1) {
             String newName = "Neko novo ime";
             names[indx] = newName;
             System.out.println("Uspješna promjena imena");
@@ -67,9 +66,9 @@ public class MainApp {
         }
     }
 
-    private static void populateStringNames(String[] namesAgain){
+    private static void populateStringNames(String[] namesAgain) {
         int cnt = 0;
-        while (cnt <= namesAgain.length-1){
+        while (cnt <= namesAgain.length - 1) {
             System.out.print("Unesi ime: ");
             String name = scanner.nextLine();
             namesAgain[cnt] = name;
@@ -78,9 +77,9 @@ public class MainApp {
         System.out.println("Added names");
     }
 
-    private static void listElements(String[] names){
+    private static void listElements(String[] names) {
         System.out.println("------------------------");
-        for (String name : names){
+        for (String name : names) {
             System.out.println("name: " + name);
         }
     }

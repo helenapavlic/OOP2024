@@ -7,11 +7,11 @@ public class Person {
     protected int id;
     private static int cntId = 100;
 
-    public Person(String name, String surname){
+    public Person(String name, String surname) {
         this.name = name;
         this.surname = surname;
         this.id = cntId++;
-        System.out.println(this.getClass().getSimpleName()+ " constr called");
+        System.out.println(this.getClass().getSimpleName() + " constr called");
     }
 
     @Override

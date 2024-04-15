@@ -1,7 +1,7 @@
 package pckg2;
 
 public class AUX_CLS {
-    public static void algMenu(){
+    public static void algMenu() {
         System.out.println("********************************************");
         System.out.println("1: addition");
         System.out.println("2: subtraction");
@@ -10,25 +10,29 @@ public class AUX_CLS {
         System.out.println("********************************************");
     }
 
-    public static void enterChoice(int choice, float n1, float n2){
+    public static void enterChoice(int choice, float n1, float n2) {
         float res;
-        switch (choice){
+        switch (choice) {
             case 1: {
-                res = MainAlgOperations.addition(n1,n2);
+                res = MainAlgOperations.addition(n1, n2);
                 System.out.println("res: " + res);
-            } break;
+            }
+            break;
             case 2: {
-                res = MainAlgOperations.subtraction(n1,n2);
+                res = MainAlgOperations.subtraction(n1, n2);
                 System.out.println("res: " + res);
-            } break;
+            }
+            break;
             case 3: {
-                res = MainAlgOperations.multiplication(n1,n2);
+                res = MainAlgOperations.multiplication(n1, n2);
                 System.out.println("res: " + res);
-            } break;
+            }
+            break;
             case 4: {
-                res = MainAlgOperations.division(n1,n2);
+                res = MainAlgOperations.division(n1, n2);
                 System.out.println("res: " + res);
-            } break;
+            }
+            break;
             default:
                 System.out.println("invalid input");
         }

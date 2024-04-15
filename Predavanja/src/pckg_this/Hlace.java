@@ -6,14 +6,14 @@ public class Hlace {
     private boolean isClear;
 
 
-    public Hlace(String manuf, String model){
+    public Hlace(String manuf, String model) {
         this.manuf = manuf;
         this.model = model;
-        this.isClear=true;
+        this.isClear = true;
 
     }
 
-    public Hlace polovne(){
+    public Hlace polovne() {
         this.isClear = false;
 //        vraća stenutni primjerak trenutne klase
         return this;
@@ -23,10 +23,10 @@ public class Hlace {
         return isClear;
     }
 
-    public void setStatusClear(){
+    public void setStatusClear() {
 //        mijenja status cistoce
-        if (!isClear){
-            isClear  = true;
+        if (!isClear) {
+            isClear = true;
         } else {
             isClear = false;
         }
@@ -36,7 +36,7 @@ public class Hlace {
         this.isClear = true;
     }
 
-    public Hlace operiMe(Student student){
+    public Hlace operiMe(Student student) {
         System.out.println("Hlače su na neki način čiste...");
 //        prosljeđujemo trenutni objekt lija metoda se poziva
         return student.operiHlace(this);
