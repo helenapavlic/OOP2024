@@ -96,8 +96,8 @@ public class ArraysPractice {
 
         int sndLargest;
 
-        if (withoutDuplicates.size() >=2){
-            sndLargest = withoutDuplicates.get(withoutDuplicates.size()-2);
+        if (withoutDuplicates.size() >= 2) {
+            sndLargest = withoutDuplicates.get(withoutDuplicates.size() - 2);
         } else {
             sndLargest = withoutDuplicates.get(0);
         }
@@ -157,16 +157,15 @@ public class ArraysPractice {
         int indexOfFirstArray = 0;
         int indexOfSndArray = 0;
 
-        for (int i = 0; i <  firstArray.length; i++) {
+        for (int i = 0; i < firstArray.length; i++) {
             for (int j = 0; j < sndArray.length; j++) {
-                if (firstArray[i] > sndArray[i]){
+                if (firstArray[i] > sndArray[i]) {
 
                 }
 
             }
 
         }
-
 
 
         int lenOfArr = firstArray.length + sndArray.length;
