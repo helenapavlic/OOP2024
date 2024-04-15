@@ -1,7 +1,5 @@
 package vjezba4_zad1;
 
-import java.util.IllegalFormatCodePointException;
-
 public class Semafor {
     //unaprijediti klasu, provjera unosa da je String
 

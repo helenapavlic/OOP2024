@@ -5,13 +5,13 @@ public class Desert {
     String vrsta;
     int kolicina;
 
-    public Desert(String naziv, String vrsta, int kolicina){
+    public Desert(String naziv, String vrsta, int kolicina) {
         this.naziv = naziv;
         this.vrsta = vrsta;
         this.kolicina = kolicina;
     }
 
-    void infoDesert(){
+    void infoDesert() {
         System.out.println(this);
     }
 

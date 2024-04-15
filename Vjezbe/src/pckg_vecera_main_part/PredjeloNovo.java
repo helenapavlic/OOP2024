@@ -3,7 +3,7 @@ package pckg_vecera_main_part;
 import pckg_outsorce_vecera.Predjelo;
 
 public class PredjeloNovo extends Predjelo {
-    private String proizvodjac;
+    private final String proizvodjac;
 
     public PredjeloNovo(String naziv, String vrsta, int kolicina, String proizvodjac) {
         super(naziv, vrsta, kolicina);

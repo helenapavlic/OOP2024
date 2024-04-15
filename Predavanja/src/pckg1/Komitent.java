@@ -7,11 +7,11 @@ public class Komitent {
     private static int cnt = 100;
     private int id;
 
-    public Komitent(String name, double balance){
+    public Komitent(String name, double balance) {
 
     }
 
-    public Komitent(String name, String type){
+    public Komitent(String name, String type) {
         this.name = name;
         this.type = type;
         id = cnt++;
@@ -41,7 +41,7 @@ public class Komitent {
     }
 
     public double withdrawMoney(double amount) {
-        if (amount>balance){
+        if (amount > balance) {
             System.out.println("Failed transaction - transaction not possible: " + balance);
             amount = 0.0;
         } else {
