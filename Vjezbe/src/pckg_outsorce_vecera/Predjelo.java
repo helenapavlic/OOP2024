@@ -2,9 +2,9 @@ package pckg_outsorce_vecera;
 
 public class Predjelo {
 
-     String naziv;
-     String vrsta;
-     int kolicina;
+     protected String naziv;
+     protected String vrsta;
+     protected int kolicina;
 
     public Predjelo(String naziv, String vrsta, int kolicina){
         this.naziv = naziv;

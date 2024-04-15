@@ -9,11 +9,16 @@ public class Vecera {
         GlavnoJelo glavnoJelo = new GlavnoJelo();
         Desert desert = new Desert("Mouse", "kolač", 3);
 
-        //ne vide se atributi u Večera jer je bez modifikatora pristupa
-        predjelo.pojediPredjelo();
-        //vidljivi atributi iz večere jer je bez modifikatora pristupa
-        float cijena = glavnoJelo.totalPrice();
-        System.out.println(cijena);
+//        //ne vide se atributi u Večera jer je bez modifikatora pristupa
+//        predjelo.pojediPredjelo();
+//        //vidljivi atributi iz večere jer je bez modifikatora pristupa
+//        float cijena = glavnoJelo.totalPrice();
+//        System.out.println(cijena);
+
+        PredjeloNovo predjeloNovo = new PredjeloNovo("Grčka", "salata", 2, "main");
+        predjeloNovo.pojediPredjelo();
+
+
 
     }
 }
