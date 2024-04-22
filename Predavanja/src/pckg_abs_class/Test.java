@@ -8,5 +8,11 @@ public class Test {
 //        student1.getSignature();
         student.getInfo();
 //        student1.getInfo();
+
+        SuperHero superHero = new SuperHero("anonimous","nosurname", "batman");
+        superHero.flyAroundTown();
+        superHero.getSignature();
+        superHero.haveEnourmousStrenght(10);
+
     }
 }
