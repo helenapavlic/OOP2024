@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public abstract class Student {
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
-    protected static int cntStudent = 1;
+    protected static int cntStudent = 100;
     protected Date enrolmentDate;
     protected String name;
     protected int idStudent;
@@ -19,7 +19,7 @@ public abstract class Student {
     }
 
     protected void setEnrollmentDate() throws ParseException {
-        System.out.print("enrolment date in dd-mm-yyyy format: ");
+        System.out.print("Please enter enrollment data in the format mm-dd-yyyy: ");
         String userInput = scanner.nextLine();
         enrolmentDate = DATE_FORMAT.parse(userInput);
     }

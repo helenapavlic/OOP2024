@@ -9,16 +9,19 @@ public class DS_Student extends Student {
 
     @Override
     protected void completedStudy(int year) {
-        if (year < 2) {
-            System.out.println(name + " student nije završio studij.");
+        if (year < 1) {
+            System.out.println("wrong input");
+        } else if (year == 1) {
+            System.out.println("Student " + name + " is on the first year of the study programme!");
         } else {
-            System.out.println(name + " student je završio studij.");
+            System.out.println("Student " + name + " is on the second year of the study programme!");
+            System.out.println("In this year student will complete study by finishing bachelor thesis...");
         }
     }
 
     @Override
     protected void infoStudent() {
         super.infoStudent();
-        System.out.println("Student je na diplomskom studiju.");
+        System.out.println("Student is on the: " + getClass().getSimpleName() + " - programme!");
     }
 }
