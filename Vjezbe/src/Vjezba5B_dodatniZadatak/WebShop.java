@@ -19,11 +19,11 @@ public class WebShop {
     }
 
     public void addItemInWebShop(Item item) {
-        if (!allWebShopItems.contains(item)){
+        if (!allWebShopItems.contains(item)) {
             allWebShopItems.add(item);
             System.out.println("item " + item.getClass().getSimpleName() + " successfully added to WebShop: " + webShopName);
         } else {
-            System.out.println("Item "+ item.getClass().getSimpleName() +" is already added!");
+            System.out.println("Item " + item.getClass().getSimpleName() + " is already added!");
         }
     }
 
@@ -39,31 +39,42 @@ public class WebShop {
     }
 
     public void listAllItems() {
+        System.out.println("---------------------------- " + webShopName + " ---------------------------------------------------");
         for (Item item : allWebShopItems) {
             System.out.println(item);
         }
+        System.out.println("---------------------------------------------------------------------------------------");
     }
 
+    /*
+        The method putItemsInPackage use naive simulation strategy of walking through
+        inventory and choosing wanted items with some quantity. All work for that is delegated
+        to the object of the class Package.
+    */
     public void putItemsInPackage(Customer customer) {
-//        todo: The method putItemsInPackage use naive simulation strategy of walking through
-//         inventory and choosing wanted items with some quantity. All work for that is delegated
-//         to the object of the class Package.
         pack = new Package(customer);
-        int input;
-
-//        todo: check int (try, catch)
         for (Item allWebShopItem : allWebShopItems) {
-            System.out.print("choose item: " + allWebShopItem + "\nchoose num of pieces (int): ");
-            input = scanner.nextInt();
-            if (input > 0 && input <= allWebShopItem.getQuantity()) {
-                pack.putItem(allWebShopItem, input);
-            } else if (input > allWebShopItem.getQuantity() || input > 0) {
-                System.out.println("there is not enough pieces in stock");
-            } else {
-                System.out.println("you have entered wrong value");
+            boolean isCorrectInput = false;
+            while (!isCorrectInput) {
+                System.out.print("choose item: " + allWebShopItem + "\nchoose num of pieces (int): ");
+                if (scanner.hasNextInt()) {
+                    int input = scanner.nextInt();
+                    isCorrectInput = true;
+                    if (input > 0 && input <= allWebShopItem.getQuantity()) {
+                        pack.putItem(allWebShopItem, input);
+                    } else if (input > allWebShopItem.getQuantity() || input > 0) {
+                        System.out.println("there is not enough pieces in stock");
+                    } else {
+                        System.out.println("you have entered wrong value");
+                    }
+                } else {
+                    System.out.println("incorrect value, try again: ");
+                    scanner.next();
+                }
             }
         }
         pack.listAllItemsInPackage();
+        scanner.close();
     }
 
     public void finnishAndPay() {
