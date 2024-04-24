@@ -19,9 +19,12 @@ public class WebShop {
     }
 
     public void addItemInWebShop(Item item) {
-//        todo: check if item is already in shop
-        allWebShopItems.add(item);
-        System.out.println("item " + item.getClass().getSimpleName() + " successfully added to WebShop: " + webShopName);
+        if (!allWebShopItems.contains(item)){
+            allWebShopItems.add(item);
+            System.out.println("item " + item.getClass().getSimpleName() + " successfully added to WebShop: " + webShopName);
+        } else {
+            System.out.println("Item "+ item.getClass().getSimpleName() +" is already added!");
+        }
     }
 
     public void updateItemOfferQuantity(Item item, int addedQuantity) {
@@ -50,9 +53,9 @@ public class WebShop {
 
 //        todo: check int (try, catch)
         for (Item allWebShopItem : allWebShopItems) {
-            System.out.println("choose item: " + allWebShopItem + " | choose num of pieces (int): ");
+            System.out.print("choose item: " + allWebShopItem + "\nchoose num of pieces (int): ");
             input = scanner.nextInt();
-            if (input > 0 && input < allWebShopItem.getQuantity()) {
+            if (input > 0 && input <= allWebShopItem.getQuantity()) {
                 pack.putItem(allWebShopItem, input);
             } else if (input > allWebShopItem.getQuantity() || input > 0) {
                 System.out.println("there is not enough pieces in stock");
@@ -60,9 +63,6 @@ public class WebShop {
                 System.out.println("you have entered wrong value");
             }
         }
-
-        System.out.println("---------------------------------------------");
-        System.out.println("items in package: ");
         pack.listAllItemsInPackage();
     }
 

@@ -40,6 +40,8 @@ public class Package {
 //        todo: save quantities in item because they might change?
 //        todo: use toString?
 
+        System.out.println("-------------------------------------------------------------------------------");
+        System.out.println("items in package: ");
         for (int i = 0; i < getPackageItems().size(); i++) {
             Item item = getPackageItems().get(i);
             System.out.printf("%-10s | id: %-5d | description: %-10s | price: %-4.2f | quantity: %-4d%n",
@@ -49,16 +51,19 @@ public class Package {
                     item.getCurrentPrice(),
                     getItemsQuantities().get(i));
         }
+        System.out.printf("TOTAL PRICE: %-4.2f\n", totalPrice);
+        System.out.println("-------------------------------------------------------------------------------");
     }
 
     public void putItem(Item item, int col) {
-//        todo: calculate total price
-//        todo: check if item is already in package
-        if (item.getQuantity() >= col) {
+        if (item.getQuantity() >= col && !packageItems.contains(item)) {
+            totalPrice += col * item.getCurrentPrice();
             packageItems.add(item);
             itemsQuantities.add(col);
             System.out.println("item: " + item.getClass().getSimpleName() + " | id: " + item.getItemID() +
-                    " is sucessfully added to package number: " + getPackageID());
+                    " is successfully added to package number: " + getPackageID());
+        } else {
+            System.out.println("item is already in package or there is not enough items in stock.");
         }
     }
 
