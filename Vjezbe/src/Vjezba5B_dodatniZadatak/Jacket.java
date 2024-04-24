@@ -36,7 +36,7 @@ public class Jacket extends Item {
 
     @Override
     public String toString() {
-        return String.format("%-10s | id: %-5d | description: %-10s | price: %-4.2f | quantity: %-4d",
+        return String.format("%-10s | id: %-5d | description: %-20s | price: %-4.2f | quantity: %-4d",
                 getClass().getSimpleName(),
                 itemID,
                 itemDescription,

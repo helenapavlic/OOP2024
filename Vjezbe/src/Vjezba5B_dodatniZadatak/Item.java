@@ -14,7 +14,11 @@ public abstract class Item {
     }
 
     protected void decreaseQuantity(int num) {
-        quantity -= num;
+        if (quantity > num){
+            quantity -= num;
+        } else {
+            System.out.println("unsuccessful, not enough items in stock");
+        }
     }
 
     public float getCurrentPrice() {
@@ -36,8 +40,6 @@ public abstract class Item {
     public int getQuantity() {
         return quantity;
     }
-
-
 
     public void setCurrentPrice(float currentPrice) {
         this.currentPrice = currentPrice;

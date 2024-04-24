@@ -1,7 +1,7 @@
 package Vjezba5B_dodatniZadatak;
 
 public class Sneakers extends Item {
-    private static int cntID = 1000;
+    private static int cntID = 2000;
 
     public Sneakers(float initPrice, int quantity, String description) {
         this.itemID = cntID++;
@@ -35,7 +35,7 @@ public class Sneakers extends Item {
 
     @Override
     public String toString() {
-        return String.format("%-10s | id: %-5d | description: %-10s | price: %-4.2f | quantity: %-4d",
+        return String.format("%-10s | id: %-5d | description: %-20s | price: %-4.2f | quantity: %-4d",
                 getClass().getSimpleName(),
                 itemID,
                 itemDescription,

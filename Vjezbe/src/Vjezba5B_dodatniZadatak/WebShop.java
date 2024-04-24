@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WebShop {
-    private static int cntID;
+    private static int cntID = 1234;
     private ArrayList<Item> allWebShopItems;
     private int id;
     private Package pack;
@@ -14,7 +14,6 @@ public class WebShop {
     public WebShop(String name) {
         this.id = cntID++;
         this.allWebShopItems = new ArrayList<>();
-        this.scanner = new Scanner(System.in);
         this.webShopName = name;
     }
 
@@ -52,6 +51,7 @@ public class WebShop {
         to the object of the class Package.
     */
     public void putItemsInPackage(Customer customer) {
+        scanner = customer.getScanner();
         pack = new Package(customer);
         for (Item allWebShopItem : allWebShopItems) {
             boolean isCorrectInput = false;
@@ -74,7 +74,8 @@ public class WebShop {
             }
         }
         pack.listAllItemsInPackage();
-        scanner.close();
+
+//        todo: payment...
     }
 
     public void finnishAndPay() {
@@ -85,6 +86,9 @@ public class WebShop {
     public void updateQuantitiesAfterSuccessfulPayment() {
 
     }
+
+//    todo: method shopping that goes trough all steps of shop after the items are added
+//    todo: add method that goes trough process of adding items (parameter num of items or void)... maybe add a new class WebShopAdmin?
 
 
     private class Payment {

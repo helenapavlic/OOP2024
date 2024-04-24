@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Package {
-    private static long cntID = 1000L;
+    private static long cntID = 5678L;
     private final Customer customer;
     private ArrayList<Integer> itemsQuantities;
     private long packageID;
@@ -40,11 +40,11 @@ public class Package {
 //        todo: save quantities in item because they might change?
 //        todo: use toString?
 
-        System.out.println("-------------------------------------------------------------------------------");
-        System.out.println("items in package: ");
+        System.out.println("---------------------------------------------------------------------------------------");
+        System.out.println("items in package " + packageID + ": ");
         for (int i = 0; i < getPackageItems().size(); i++) {
             Item item = getPackageItems().get(i);
-            System.out.printf("%-10s | id: %-5d | description: %-10s | price: %-4.2f | quantity: %-4d%n",
+            System.out.printf("%-10s | id: %-5d | description: %-20s | price: %-4.2f | quantity: %-4d%n",
                     item.getClass().getSimpleName(),
                     item.getItemID(),
                     item.getItemDescription(),
@@ -52,7 +52,7 @@ public class Package {
                     getItemsQuantities().get(i));
         }
         System.out.printf("TOTAL PRICE: %-4.2f\n", totalPrice);
-        System.out.println("-------------------------------------------------------------------------------");
+        System.out.println("---------------------------------------------------------------------------------------");
     }
 
     public void putItem(Item item, int col) {
@@ -67,15 +67,14 @@ public class Package {
         }
     }
 
-//    todo: format toString
     @Override
     public String toString() {
-        return "Package{" +
-                "customer=" + customer +
-                ", items Quantities=" + itemsQuantities +
-                ", package ID=" + packageID +
-                ", package Items=" + packageItems +
-                ", total Price=" + totalPrice +
-                '}';
+        return String.format("%-10s | id: %-5d | customer: %-20s | price: %-4.2f",
+                getClass().getSimpleName(),
+                packageID,
+                customer,
+                totalPrice
+        );
     }
 }
+
