@@ -24,6 +24,7 @@ public class T_Shirt extends Item {
         this.currentPrice = initPrice;
         this.quantity = quantity;
         this.itemDescription = description;
+        this.inStock = true;
     }
 
     /**

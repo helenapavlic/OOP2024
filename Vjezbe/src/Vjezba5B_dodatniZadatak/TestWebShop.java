@@ -4,6 +4,8 @@ package Vjezba5B_dodatniZadatak;
  * The TestWebShop class provides methods to test the functionalities of the WebShop class.
  */
 public class TestWebShop {
+//    todo: print statement in decreasing values
+//    todo: exceptions
 
     /**
      * The main method to test various functionalities of the WebShop class.
@@ -25,6 +27,8 @@ public class TestWebShop {
         System.out.println("---------------------- test shopping -----------------------------");
         testPutItemsInPackage(webShop, customer);
         System.out.println();
+        testPutItemsInPackage(webShop, customer);
+        System.out.println();
 
         System.out.println("---------------------- test changing price -----------------------------");
         testChangeItemPrice(webShop);
@@ -32,6 +36,10 @@ public class TestWebShop {
 
         System.out.println("---------------------- test updating quantity -----------------------------");
         testUpdateItemOfferQuantity(webShop);
+        System.out.println();
+
+        System.out.println("---------------------- test updating item in stock -----------------------------");
+        testUpdateItemStock(webShop);
         System.out.println();
     }
 
@@ -91,6 +99,23 @@ public class TestWebShop {
         sneakers.setItemPrice(-0.2f);
         sneakers.setItemPrice(0.5f);
         webShop.listAllItems();
+        System.out.println();
+
+    }
+
+    public static void testUpdateItemStock(WebShop webShop) {
+        Sneakers sneakers = new Sneakers(100, 4, "test tenisice");
+        webShop.addItemInWebShop(sneakers);
+        System.out.println("sneakers quantity: " + sneakers.getQuantity());
+        System.out.println("decresed quantity of sneakers by: " + sneakers.getQuantity());
+        sneakers.decreaseQuantity(sneakers.getQuantity());
+        System.out.println(sneakers);
+        System.out.println("sneakers in stock: " + sneakers.isInStock());
+
+        System.out.println("added 5 sneakers");
+        sneakers.setAdditionalQuantity(5);
+        System.out.println(sneakers);
+        System.out.println("sneakers in stock: " + sneakers.isInStock());
     }
 
     /**

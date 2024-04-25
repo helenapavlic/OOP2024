@@ -1,7 +1,7 @@
 package Vjezba5B_dodatniZadatak;
 
 /**
- * The abstract Item class represents an item in a webshop.
+ * The abstract Item class represents an item in a web-shop.
  * It provides methods to manage the properties of an item.
  */
 public abstract class Item {
@@ -30,6 +30,10 @@ public abstract class Item {
      * The quantity of the item in stock.
      */
     protected int quantity;
+    /**
+     * Is item in stock.
+     */
+    protected boolean inStock;
 
     /**
      * Constructs a new Item with default values.
@@ -46,6 +50,9 @@ public abstract class Item {
     protected void decreaseQuantity(int num) {
         if (quantity >= num) {
             quantity -= num;
+            if (quantity == 0) {
+                inStock = false;
+            }
         } else {
             System.out.println("unsuccessful, not enough items in stock");
         }
@@ -67,6 +74,16 @@ public abstract class Item {
      */
     public void setCurrentPrice(float currentPrice) {
         this.currentPrice = currentPrice;
+    }
+
+
+    /**
+     * Checks if the item is in stock.
+     *
+     * @return true if the item is in stock, false otherwise
+     */
+    public boolean isInStock() {
+        return inStock;
     }
 
     /**
@@ -112,6 +129,9 @@ public abstract class Item {
      */
     public void setAdditionalQuantity(int additionalQuantity) {
         this.quantity = quantity + additionalQuantity;
+        if (quantity > 0) {
+            inStock = true;
+        }
     }
 
     /**

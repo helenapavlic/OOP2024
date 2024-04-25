@@ -103,33 +103,38 @@ public class WebShop {
         scanner = customer.getScanner();
         pack = new Package(customer);
         for (Item allWebShopItem : allWebShopItems) {
-            boolean isCorrectInput = false;
-            while (!isCorrectInput) {
-                System.out.print("choose item: " + allWebShopItem + "\nchoose num of pieces (int): ");
-                if (scanner.hasNextInt()) {
-                    int input = scanner.nextInt();
-                    isCorrectInput = true;
-                    if (input > 0 && input <= allWebShopItem.getQuantity()) {
-                        pack.putItem(allWebShopItem, input);
-                    } else if (input > allWebShopItem.getQuantity() || input > 0) {
-                        System.out.println("there is not enough pieces in stock");
+            if (allWebShopItem.isInStock()){
+                boolean isCorrectInput = false;
+                while (!isCorrectInput) {
+                    System.out.print("choose item: " + allWebShopItem + "\nchoose num of pieces (int): ");
+                    if (scanner.hasNextInt()) {
+                        int input = scanner.nextInt();
+                        isCorrectInput = true;
+                        if (input > 0 && input <= allWebShopItem.getQuantity()) {
+                            pack.putItem(allWebShopItem, input);
+                        } else if (input > allWebShopItem.getQuantity() || input > 0) {
+                            System.out.println("there is not enough pieces in stock");
+                        } else {
+                            System.out.println("you have entered wrong value");
+                        }
                     } else {
-                        System.out.println("you have entered wrong value");
+                        System.out.println("incorrect value, try again: ");
+                        scanner.next();
                     }
-                } else {
-                    System.out.println("incorrect value, try again: ");
-                    scanner.next();
                 }
+            } else {
+                System.out.println("Item: " + allWebShopItem + " is currently out of stock");
             }
+
         }
         pack.listAllItemsInPackage();
         if (!pack.getPackageItems().isEmpty()) {
             finnishAndPay();
         } else {
             System.out.println("There is no items in package");
-            System.out.println("closing program...");
         }
     }
+
 
     /**
      * Finalizes payment and updates items quantities after a successful payment.
@@ -152,6 +157,7 @@ public class WebShop {
      * Updates the quantities of items after a successful payment.
      */
     public void updateQuantitiesAfterSuccessfulPayment() {
+//        todo: check stock of items?
         for (int i = 0; i < pack.getPackageItems().size(); i++) {
             Item item = pack.getPackageItems().get(i);
             int quantity = pack.getItemsQuantities().get(i);
@@ -159,6 +165,7 @@ public class WebShop {
             System.out.println("Decreasing num of available items for item: " + item + " for: " + quantity);
         }
     }
+
 
     /**
      * The inner class Payment handles the payment process.
