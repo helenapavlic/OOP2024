@@ -37,7 +37,7 @@ public class Package {
 
     public void listAllItemsInPackage() {
         System.out.println("---------------------------------------------------------------------------------------");
-        System.out.println("items in package " + packageID + ": ");
+        System.out.println("items in package [" + packageID + "]: " + getPackageItems().size());
         for (int i = 0; i < getPackageItems().size(); i++) {
             Item item = getPackageItems().get(i);
             System.out.printf("%-10s | id: %-5d | description: %-20s | price: %-4.2f | quantity: %-4d%n",

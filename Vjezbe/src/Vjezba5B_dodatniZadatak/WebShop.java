@@ -27,10 +27,19 @@ public class WebShop {
         }
     }
 
-    public void updateItemOfferQuantity(Item item, int addedQuantity) {
-        item.setAdditionalQuantity(addedQuantity);
-        System.out.println("updated quantity for item: " + item);
-        System.out.println("new quantity: " + item.getQuantity());
+    public void updateItemOfferQuantity(Item item, int quantity) {
+        System.out.println(item);
+        System.out.println("changing quantity for: " + quantity);
+        if (quantity > 0){
+            item.setAdditionalQuantity(quantity);
+            System.out.println("new quantity: " + item.getQuantity());
+        } else if (quantity < 0) {
+            item.decreaseQuantity(Math.abs(quantity));
+            System.out.println("new quantity: " + item.getQuantity());
+        } else {
+            System.out.println("there is no change in quantity");
+        }
+
     }
 
     public void listAllItems() {
@@ -103,9 +112,6 @@ public class WebShop {
         }
     }
 
-//    todo: method shopping that goes trough all steps of shop after the items are added
-//    todo: add method that goes trough process of adding items (parameter num of items or void)... maybe add a new class WebShopAdmin?
-
 
     private class Payment {
         final String CREDIT_CARD = "CC";
@@ -152,7 +158,6 @@ public class WebShop {
             }
         }
 
-        //        added parameter successful payment
         public boolean isSuccessfulPayment() {
             return successfulPayment;
         }

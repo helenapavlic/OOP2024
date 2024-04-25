@@ -8,7 +8,6 @@ public class Customer {
     protected String address;
     protected int id;
     private Scanner scanner;
-    //private static final String CUSTOMER;
 
     public Customer(String address) {
         this.address = address;
@@ -27,6 +26,10 @@ public class Customer {
 
     public int getId() {
         return id;
+    }
+
+    public String getCustomer(){
+        return customer;
     }
 
     @Override

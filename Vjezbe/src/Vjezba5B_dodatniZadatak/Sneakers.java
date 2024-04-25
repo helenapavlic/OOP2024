@@ -18,16 +18,14 @@ public class Sneakers extends Item {
 
     @Override
     protected void setItemPrice(float percentage) {
-        if (percentage > 0) {
-            System.out.println(getClass().getSimpleName() + " | id: " + getItemID() + " | price increased for: " + percentage * 100 + "%");
-            System.out.println("price before change: " + getCurrentPrice());
-            this.currentPrice = getCurrentPrice() + currentPrice * percentage;
-            System.out.println("current price: " + getCurrentPrice());
-        } else if (percentage < 0) {
-            System.out.println(getClass().getSimpleName() + " | id: " + getItemID() + " | price decreased for: " + percentage * 100 + "%");
-            System.out.println("price before change: " + getCurrentPrice());
-            this.currentPrice = getCurrentPrice() - currentPrice * percentage;
-            System.out.println("current price: " + getCurrentPrice());
+        float currentPrice = getCurrentPrice();
+        float updatedPrice;
+        if (percentage != 0) {
+            System.out.println(getClass().getSimpleName() + " | id: " + getItemID() + " | price change: " + percentage * 100 + "%");
+            System.out.printf("Price before change: %-4.2f\n", currentPrice);
+            updatedPrice = currentPrice + currentPrice * percentage;
+            setCurrentPrice(updatedPrice);
+            System.out.printf("Current price: %-4.2f\n", getCurrentPrice());
         } else {
             System.out.println("there is no change in price");
         }

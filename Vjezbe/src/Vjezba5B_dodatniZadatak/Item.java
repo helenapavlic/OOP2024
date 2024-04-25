@@ -14,6 +14,7 @@ public abstract class Item {
     }
 
     protected void decreaseQuantity(int num) {
+
         if (quantity >= num){
             quantity -= num;
         } else {
@@ -46,7 +47,7 @@ public abstract class Item {
     }
 
     public void setAdditionalQuantity(int additionalQuantity) {
-        this.quantity = getQuantity() + additionalQuantity;
+        this.quantity = quantity + additionalQuantity;
     }
 
     protected abstract void changeItemDescription(String newDescription);
