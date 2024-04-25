@@ -3,21 +3,57 @@ package Vjezba5B_dodatniZadatak;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * The WebShop class represents a web shop with various functionalities.
+ */
 public class WebShop {
-    //    todo: method shopping that leads customer trough entire process!
+
+    /**
+     * The static counter for generating unique web shop IDs.
+     */
     private static int cntID = 1234;
-    private ArrayList<Item> allWebShopItems;
+
+    /**
+     * The list of all items in the web shop.
+     */
+    private final ArrayList<Item> allWebShopItems;
+
+    /**
+     * The ID of the web shop.
+     */
     private int id;
+
+    /**
+     * The package of items.
+     */
     private Package pack;
+
+    /**
+     * The scanner object for user input.
+     */
     private Scanner scanner;
+
+    /**
+     * The name of the web shop.
+     */
     private String webShopName;
 
+    /**
+     * Constructs a new web shop with the specified name.
+     *
+     * @param name the name of the web shop
+     */
     public WebShop(String name) {
         this.id = cntID++;
         this.allWebShopItems = new ArrayList<>();
         this.webShopName = name;
     }
 
+    /**
+     * Adds an item to the web shop.
+     *
+     * @param item the item to add
+     */
     public void addItemInWebShop(Item item) {
         if (!allWebShopItems.contains(item)) {
             allWebShopItems.add(item);
@@ -27,10 +63,16 @@ public class WebShop {
         }
     }
 
+    /**
+     * Updates the quantity of an item in the web shop inventory.
+     *
+     * @param item     the item to update
+     * @param quantity the new quantity of the item
+     */
     public void updateItemOfferQuantity(Item item, int quantity) {
         System.out.println(item);
         System.out.println("changing quantity for: " + quantity);
-        if (quantity > 0){
+        if (quantity > 0) {
             item.setAdditionalQuantity(quantity);
             System.out.println("new quantity: " + item.getQuantity());
         } else if (quantity < 0) {
@@ -39,9 +81,11 @@ public class WebShop {
         } else {
             System.out.println("there is no change in quantity");
         }
-
     }
 
+    /**
+     * Lists all items available in the web shop.
+     */
     public void listAllItems() {
         System.out.println("---------------------------- " + webShopName + " ---------------------------------------------------");
         for (Item item : allWebShopItems) {
@@ -50,11 +94,11 @@ public class WebShop {
         System.out.println("---------------------------------------------------------------------------------------");
     }
 
-    /*
-        The method putItemsInPackage use naive simulation strategy of walking through
-        inventory and choosing wanted items with some quantity. All work for that is delegated
-        to the object of the class Package.
-    */
+    /**
+     * Puts items in a package for a customer.
+     *
+     * @param customer the customer
+     */
     public void putItemsInPackage(Customer customer) {
         scanner = customer.getScanner();
         pack = new Package(customer);
@@ -87,9 +131,10 @@ public class WebShop {
         }
     }
 
+    /**
+     * Finalizes payment and updates items quantities after a successful payment.
+     */
     public void finnishAndPay() {
-//        todo: The method finishAndPay finalizes payment using inner class Payment. This method provides
-//         info on package and customer, and updates items quantities in web shop inventory.
         Payment payment = new Payment();
         payment.possiblePaymentMethods();
         payment.payPackage();
@@ -103,6 +148,9 @@ public class WebShop {
         }
     }
 
+    /**
+     * Updates the quantities of items after a successful payment.
+     */
     public void updateQuantitiesAfterSuccessfulPayment() {
         for (int i = 0; i < pack.getPackageItems().size(); i++) {
             Item item = pack.getPackageItems().get(i);
@@ -112,7 +160,9 @@ public class WebShop {
         }
     }
 
-
+    /**
+     * The inner class Payment handles the payment process.
+     */
     private class Payment {
         final String CREDIT_CARD = "CC";
         final String PAY_PAL = "PP";
@@ -122,6 +172,9 @@ public class WebShop {
         public Payment() {
         }
 
+        /**
+         * Displays the possible payment methods.
+         */
         private void possiblePaymentMethods() {
             System.out.println("possible payment methods are:");
             System.out.println(CREDIT_CARD + " - credit card payment");
@@ -129,13 +182,15 @@ public class WebShop {
             System.out.println(CASH_ON_DELIVERY + " - Cash On Delivery");
         }
 
+        /**
+         * Performs the payment process.
+         */
         private void payPackage() {
             scanner = new Scanner(System.in);
             System.out.println("please enter a correct code before preferred payment method " +
-                    "(for cancellation enter any other num): ");
+                    "(for cancellation enter any other input): ");
             String input = scanner.nextLine();
             input = input.toUpperCase().strip();
-
             switch (input) {
                 case "CC":
                     System.out.println("you selected credit card payment...");
@@ -158,6 +213,11 @@ public class WebShop {
             }
         }
 
+        /**
+         * Checks if the payment was successful.
+         *
+         * @return true if the payment was successful, otherwise false
+         */
         public boolean isSuccessfulPayment() {
             return successfulPayment;
         }

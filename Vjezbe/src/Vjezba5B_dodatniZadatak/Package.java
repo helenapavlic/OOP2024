@@ -2,15 +2,47 @@ package Vjezba5B_dodatniZadatak;
 
 import java.util.ArrayList;
 
+/**
+ * The Package class represents a package of items in a web-shop.
+ * It provides methods to manage the package contents and calculate the total price.
+ */
 public class Package {
+
+    /**
+     * The static counter for generating unique package IDs.
+     */
     private static long cntID = 5678L;
+
+    /**
+     * The customer who owns the package.
+     */
     private final Customer customer;
+
+    /**
+     * The list of quantities of items in the package.
+     */
     private ArrayList<Integer> itemsQuantities;
+
+    /**
+     * The ID of the package.
+     */
     private long packageID;
+
+    /**
+     * The list of items in the package.
+     */
     private ArrayList<Item> packageItems;
+
+    /**
+     * The total price of the package.
+     */
     private float totalPrice;
 
-
+    /**
+     * Constructs a new package for the specified customer.
+     *
+     * @param customer the customer who owns the package
+     */
     public Package(Customer customer) {
         this.packageID = cntID++;
         this.customer = customer;
@@ -19,22 +51,45 @@ public class Package {
         itemsQuantities = new ArrayList<>();
     }
 
+    /**
+     * Returns the customer who owns the package.
+     *
+     * @return the customer who owns the package
+     */
     public Customer getCustomer() {
         return customer;
     }
 
+    /**
+     * Returns the list of quantities of items in the package.
+     *
+     * @return the list of quantities of items in the package
+     */
     public ArrayList<Integer> getItemsQuantities() {
         return itemsQuantities;
     }
 
+    /**
+     * Returns the ID of the package.
+     *
+     * @return the ID of the package
+     */
     public long getPackageID() {
         return packageID;
     }
 
+    /**
+     * Returns the list of items in the package.
+     *
+     * @return the list of items in the package
+     */
     public ArrayList<Item> getPackageItems() {
         return packageItems;
     }
 
+    /**
+     * Lists all items in the package along with their details.
+     */
     public void listAllItemsInPackage() {
         System.out.println("---------------------------------------------------------------------------------------");
         System.out.println("items in package [" + packageID + "]: " + getPackageItems().size());
@@ -51,6 +106,12 @@ public class Package {
         System.out.println("---------------------------------------------------------------------------------------");
     }
 
+    /**
+     * Adds an item to the package with the specified quantity.
+     *
+     * @param item the item to add to the package
+     * @param col  the quantity of the item to add
+     */
     public void putItem(Item item, int col) {
         if (item.getQuantity() >= col && !packageItems.contains(item)) {
             totalPrice += col * item.getCurrentPrice();
@@ -63,6 +124,11 @@ public class Package {
         }
     }
 
+    /**
+     * Returns a string representation of the package.
+     *
+     * @return a string representation of the package
+     */
     @Override
     public String toString() {
         return String.format("%-5s id: %-5d | customer: \"%-20s\" | price: %-4.2f",
@@ -73,4 +139,3 @@ public class Package {
         );
     }
 }
-

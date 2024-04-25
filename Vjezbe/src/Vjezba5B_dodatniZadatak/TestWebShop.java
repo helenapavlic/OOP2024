@@ -1,7 +1,15 @@
 package Vjezba5B_dodatniZadatak;
 
+/**
+ * The TestWebShop class provides methods to test the functionalities of the WebShop class.
+ */
 public class TestWebShop {
 
+    /**
+     * The main method to test various functionalities of the WebShop class.
+     *
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         WebShop webShop = new WebShop("zara");
         Customer customer = new Customer("ulica 22");
@@ -13,17 +21,25 @@ public class TestWebShop {
         System.out.println("---------------------- test listing all items -----------------------------");
         testListingAllItems(webShop);
         System.out.println();
+
         System.out.println("---------------------- test shopping -----------------------------");
         testPutItemsInPackage(webShop, customer);
         System.out.println();
+
         System.out.println("---------------------- test changing price -----------------------------");
         testChangeItemPrice(webShop);
         System.out.println();
+
         System.out.println("---------------------- test updating quantity -----------------------------");
         testUpdateItemOfferQuantity(webShop);
         System.out.println();
     }
 
+    /**
+     * Tests the method to add items in the web shop.
+     *
+     * @param webShop the web shop
+     */
     public static void testAddItemInWebShop(WebShop webShop) {
         Jacket jacket = new Jacket(50.00F, 30, "kožna jakna");
         Jacket jacket1 = new Jacket(35.00F, 5, "zimska jakna");
@@ -42,16 +58,31 @@ public class TestWebShop {
         webShop.addItemInWebShop(sneakers1);
     }
 
-    public static void testListingAllItems(WebShop webShop){
+    /**
+     * Tests the method to list all items in the web shop.
+     *
+     * @param webShop the web shop
+     */
+    public static void testListingAllItems(WebShop webShop) {
         webShop.listAllItems();
     }
 
+    /**
+     * Tests the method to put items in a package.
+     *
+     * @param webShop  the web shop
+     * @param customer the customer
+     */
     public static void testPutItemsInPackage(WebShop webShop, Customer customer) {
         webShop.putItemsInPackage(customer);
     }
 
+    /**
+     * Tests the method to change the price of an item.
+     *
+     * @param webShop the web shop
+     */
     public static void testChangeItemPrice(WebShop webShop) {
-
         Sneakers sneakers = new Sneakers(100.00F, 4, "puma tenisice");
         webShop.addItemInWebShop(sneakers);
 
@@ -62,6 +93,11 @@ public class TestWebShop {
         webShop.listAllItems();
     }
 
+    /**
+     * Tests the method to update the quantity of an item.
+     *
+     * @param webShop the web shop
+     */
     public static void testUpdateItemOfferQuantity(WebShop webShop) {
         Sneakers sneakers = new Sneakers(60.00F, 7, "vans");
         T_Shirt tShirt = new T_Shirt(9.00F, 40, "top");
