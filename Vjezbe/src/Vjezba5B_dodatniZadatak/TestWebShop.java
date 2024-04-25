@@ -4,8 +4,6 @@ package Vjezba5B_dodatniZadatak;
  * The TestWebShop class provides methods to test the functionalities of the WebShop class.
  */
 public class TestWebShop {
-//    todo: print statement in decreasing values
-//    todo: exceptions
 
     /**
      * The main method to test various functionalities of the WebShop class.
@@ -56,9 +54,8 @@ public class TestWebShop {
         Sneakers sneakers = new Sneakers(100.00F, 2, "nike tenisice");
         Sneakers sneakers1 = new Sneakers(90.00F, 6, "starke");
 
-        // Test adding items
         webShop.addItemInWebShop(jacket);
-        webShop.addItemInWebShop(jacket); // Adding the same item should not work
+        webShop.addItemInWebShop(jacket);
         webShop.addItemInWebShop(jacket1);
         webShop.addItemInWebShop(tShirt);
         webShop.addItemInWebShop(tShirt1);
@@ -100,7 +97,6 @@ public class TestWebShop {
         sneakers.setItemPrice(0.5f);
         webShop.listAllItems();
         System.out.println();
-
     }
 
     public static void testUpdateItemStock(WebShop webShop) {
@@ -130,11 +126,9 @@ public class TestWebShop {
         webShop.addItemInWebShop(sneakers);
         webShop.addItemInWebShop(tShirt);
 
-        // Test updating item offer quantity
         webShop.updateItemOfferQuantity(sneakers, 10);
         webShop.updateItemOfferQuantity(tShirt, -20);
 
-        // Test listing all items after updating quantities
         webShop.listAllItems();
     }
 }

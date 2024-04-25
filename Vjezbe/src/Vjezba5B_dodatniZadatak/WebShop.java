@@ -103,7 +103,7 @@ public class WebShop {
         scanner = customer.getScanner();
         pack = new Package(customer);
         for (Item allWebShopItem : allWebShopItems) {
-            if (allWebShopItem.isInStock()){
+            if (allWebShopItem.isInStock()) {
                 boolean isCorrectInput = false;
                 while (!isCorrectInput) {
                     System.out.print("choose item: " + allWebShopItem + "\nchoose num of pieces (int): ");
@@ -157,7 +157,6 @@ public class WebShop {
      * Updates the quantities of items after a successful payment.
      */
     public void updateQuantitiesAfterSuccessfulPayment() {
-//        todo: check stock of items?
         for (int i = 0; i < pack.getPackageItems().size(); i++) {
             Item item = pack.getPackageItems().get(i);
             int quantity = pack.getItemsQuantities().get(i);
