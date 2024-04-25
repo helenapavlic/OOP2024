@@ -14,7 +14,7 @@ public abstract class Item {
     }
 
     protected void decreaseQuantity(int num) {
-        if (quantity > num){
+        if (quantity >= num){
             quantity -= num;
         } else {
             System.out.println("unsuccessful, not enough items in stock");

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WebShop {
+    //    todo: method shopping that leads customer trough entire process!
     private static int cntID = 1234;
     private ArrayList<Item> allWebShopItems;
     private int id;
@@ -30,11 +31,6 @@ public class WebShop {
         item.setAdditionalQuantity(addedQuantity);
         System.out.println("updated quantity for item: " + item);
         System.out.println("new quantity: " + item.getQuantity());
-    }
-
-    public void reduceNumberOffersAfterSuccessfulPurchase(Item item, int quantity) {
-        //todo: Only after successful payment quantities of chosen items needs to be reduced.
-
     }
 
     public void listAllItems() {
@@ -74,17 +70,37 @@ public class WebShop {
             }
         }
         pack.listAllItemsInPackage();
-
-//        todo: payment...
+        if (!pack.getPackageItems().isEmpty()) {
+            finnishAndPay();
+        } else {
+            System.out.println("There is no items in package");
+            System.out.println("closing program...");
+        }
     }
 
     public void finnishAndPay() {
 //        todo: The method finishAndPay finalizes payment using inner class Payment. This method provides
 //         info on package and customer, and updates items quantities in web shop inventory.
+        Payment payment = new Payment();
+        payment.possiblePaymentMethods();
+        payment.payPackage();
+
+        if (payment.isSuccessfulPayment()) {
+            System.out.println(pack);
+            System.out.println("thanks for shopping!");
+            updateQuantitiesAfterSuccessfulPayment();
+        } else {
+            System.out.println("Exiting the program...");
+        }
     }
 
     public void updateQuantitiesAfterSuccessfulPayment() {
-
+        for (int i = 0; i < pack.getPackageItems().size(); i++) {
+            Item item = pack.getPackageItems().get(i);
+            int quantity = pack.getItemsQuantities().get(i);
+            item.decreaseQuantity(quantity);
+            System.out.println("Decreasing num of available items for item: " + item + " for: " + quantity);
+        }
     }
 
 //    todo: method shopping that goes trough all steps of shop after the items are added
@@ -102,45 +118,43 @@ public class WebShop {
 
         private void possiblePaymentMethods() {
             System.out.println("possible payment methods are:");
-            System.out.println("1 - credit card payment");
-            System.out.println("2 - Pay Pal Service");
-            System.out.println("3 - Cash On Delivery");
+            System.out.println(CREDIT_CARD + " - credit card payment");
+            System.out.println(PAY_PAL + " - Pay Pal Service");
+            System.out.println(CASH_ON_DELIVERY + " - Cash On Delivery");
         }
 
         private void payPackage() {
-            System.out.println("please select desired payment method, or cancel purchase");
-            possiblePaymentMethods();
-            System.out.println("for cancelling purchase press any other number");
-            //todo: finnish payment
-//            pitat za input korisnika
-//            provjeriti je li input int, ako je možemo dalje, ako nije ponovi input
+            scanner = new Scanner(System.in);
+            System.out.println("please enter a correct code before preferred payment method " +
+                    "(for cancellation enter any other num): ");
+            String input = scanner.nextLine();
+            input = input.toUpperCase().strip();
 
-//            todo: check input (try, catch)
-            int unos;
-            do {
-                System.out.println("please enter a num before preferred payment method (for cancellation enter any other num): ");
-                unos = scanner.nextInt();
-            } while (!scanner.hasNextInt());
-
-            if (unos == 1) {
-                System.out.println(CREDIT_CARD);
-                successfulPayment = true;
-            } else if (unos == 2) {
-                System.out.println(PAY_PAL);
-                successfulPayment = true;
-            } else if (unos == 3) {
-                System.out.println(CASH_ON_DELIVERY);
-                successfulPayment = true;
-            } else {
-                System.out.println("cancelled package!");
+            switch (input) {
+                case "CC":
+                    System.out.println("you selected credit card payment...");
+                    System.out.println("simulating transaction...");
+                    System.out.println("transaction successful!");
+                    successfulPayment = true;
+                    break;
+                case "PP":
+                    System.out.println("you selected pay pal payment...");
+                    System.out.println("simulating transaction...");
+                    System.out.println("transaction successful!");
+                    successfulPayment = true;
+                    break;
+                case "COD":
+                    System.out.println("you selected cash on delivery payment...");
+                    successfulPayment = true;
+                    break;
+                default:
+                    System.out.println("package cancelled...");
             }
-
         }
 
         //        added parameter successful payment
         public boolean isSuccessfulPayment() {
             return successfulPayment;
         }
-//        todo: canceled package?
     }
 }

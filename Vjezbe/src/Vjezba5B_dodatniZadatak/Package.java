@@ -1,7 +1,6 @@
 package Vjezba5B_dodatniZadatak;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Package {
     private static long cntID = 5678L;
@@ -37,9 +36,6 @@ public class Package {
     }
 
     public void listAllItemsInPackage() {
-//        todo: save quantities in item because they might change?
-//        todo: use toString?
-
         System.out.println("---------------------------------------------------------------------------------------");
         System.out.println("items in package " + packageID + ": ");
         for (int i = 0; i < getPackageItems().size(); i++) {
@@ -69,7 +65,7 @@ public class Package {
 
     @Override
     public String toString() {
-        return String.format("%-10s | id: %-5d | customer: %-20s | price: %-4.2f",
+        return String.format("%-5s id: %-5d | customer: \"%-20s\" | price: %-4.2f",
                 getClass().getSimpleName(),
                 packageID,
                 customer,
