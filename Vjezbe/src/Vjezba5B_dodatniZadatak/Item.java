@@ -42,23 +42,6 @@ public abstract class Item {
     }
 
     /**
-     * Decreases the quantity of the item in stock by a specified number.
-     * If there are not enough items in stock, prints a message.
-     *
-     * @param num the number by which to decrease the quantity
-     */
-    protected void decreaseQuantity(int num) {
-        if (quantity >= num) {
-            quantity -= num;
-            if (quantity == 0) {
-                inStock = false;
-            }
-        } else {
-            System.out.println("unsuccessful, not enough items in stock");
-        }
-    }
-
-    /**
      * Gets the current price of the item.
      *
      * @return the current price of the item
@@ -120,6 +103,23 @@ public abstract class Item {
      */
     public int getQuantity() {
         return quantity;
+    }
+
+    /**
+     * Decreases the quantity of the item in stock by a specified number.
+     * If there are not enough items in stock, prints a message.
+     *
+     * @param num the number by which to decrease the quantity
+     */
+    protected void decreaseQuantity(int num) {
+        if (quantity >= num) {
+            quantity -= num;
+            if (quantity == 0) {
+                inStock = false;
+            }
+        } else {
+            System.out.println("unsuccessful, not enough items in stock");
+        }
     }
 
     /**

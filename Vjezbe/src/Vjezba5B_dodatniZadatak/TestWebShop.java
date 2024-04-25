@@ -25,8 +25,6 @@ public class TestWebShop {
         System.out.println("---------------------- test shopping -----------------------------");
         testPutItemsInPackage(webShop, customer);
         System.out.println();
-        testPutItemsInPackage(webShop, customer);
-        System.out.println();
 
         System.out.println("---------------------- test changing price -----------------------------");
         testChangeItemPrice(webShop);

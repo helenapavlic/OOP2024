@@ -64,26 +64,6 @@ public class WebShop {
     }
 
     /**
-     * Updates the quantity of an item in the web shop inventory.
-     *
-     * @param item     the item to update
-     * @param quantity the new quantity of the item
-     */
-    public void updateItemOfferQuantity(Item item, int quantity) {
-        System.out.println(item);
-        System.out.println("changing quantity for: " + quantity);
-        if (quantity > 0) {
-            item.setAdditionalQuantity(quantity);
-            System.out.println("new quantity: " + item.getQuantity());
-        } else if (quantity < 0) {
-            item.decreaseQuantity(Math.abs(quantity));
-            System.out.println("new quantity: " + item.getQuantity());
-        } else {
-            System.out.println("there is no change in quantity");
-        }
-    }
-
-    /**
      * Lists all items available in the web shop.
      */
     public void listAllItems() {
@@ -135,7 +115,6 @@ public class WebShop {
         }
     }
 
-
     /**
      * Finalizes payment and updates items quantities after a successful payment.
      */
@@ -165,6 +144,25 @@ public class WebShop {
         }
     }
 
+    /**
+     * Updates the quantity of an item in the web shop inventory.
+     *
+     * @param item     the item to update
+     * @param quantity the new quantity of the item
+     */
+    public void updateItemOfferQuantity(Item item, int quantity) {
+        System.out.println(item);
+        System.out.println("changing quantity for: " + quantity);
+        if (quantity > 0) {
+            item.setAdditionalQuantity(quantity);
+            System.out.println("new quantity: " + item.getQuantity());
+        } else if (quantity < 0) {
+            item.decreaseQuantity(Math.abs(quantity));
+            System.out.println("new quantity: " + item.getQuantity());
+        } else {
+            System.out.println("there is no change in quantity");
+        }
+    }
 
     /**
      * The inner class Payment handles the payment process.
