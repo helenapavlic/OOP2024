@@ -1,4 +1,4 @@
-package vjezba6_zadatak2;
+package vjezba6;
 
 public class Robot {
     private static int cntId = 100;

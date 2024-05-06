@@ -1,4 +1,4 @@
-package vjezba6_zadatak2;
+package vjezba6;
 
 import java.util.Map;
 import java.util.Set;
