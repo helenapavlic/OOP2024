@@ -2,8 +2,11 @@ package vjezba6_zadatak2;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class AUX_CLS {
+
+    private static final int MAXI = 100;
     public static void addNewUser(User user, Map<Integer, String> users) {
         if (users.containsKey(user.getUserId())) {
             System.out.println("user is already added");
@@ -17,7 +20,7 @@ public class AUX_CLS {
     public static <K, V> void listAllMapElements(Map<K, V> map) {
         System.out.println("-----------------------------------------");
         for (K key : map.keySet()) {
-            System.out.println("id: " + key + " username: " + map.get(key));
+            System.out.println(key + " | " + map.get(key));
         }
     }
 
@@ -28,7 +31,7 @@ public class AUX_CLS {
         }
     }
 
-    public static void addElementToSet(String element, Set<String> elements) {
+    public static <E> void addElementToSet(E element, Set<E> elements) {
 //        set cant have duplicates
         if (elements.add(element)) {
             System.out.println("element added!");
@@ -54,5 +57,17 @@ public class AUX_CLS {
         }
     }
 
+    public static void addRobotToMap(Map<Robot, Integer> robots, Robot robot) {
+        if (robots.containsKey(robot)){
+            System.out.println("robot is already in map");
+        } else {
+            robots.put(robot, randomIntValue());
+            System.out.println("new robot added: " + robot.getDescription());
+        }
+    }
+
+    private static int randomIntValue() {
+        return ThreadLocalRandom.current().nextInt(MAXI);
+    }
 
 }
