@@ -2,8 +2,6 @@ package vjezba6_zadatak2;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.TreeSet;
 
 public class ClientApp {
     public static void main(String[] args) {
@@ -50,17 +48,17 @@ public class ClientApp {
 
         HashSet<Robot> robots = new HashSet<>();
 
-        AUX_CLS.addElementToSet(new Robot("flying robot"),robots);
-        AUX_CLS.addElementToSet(new Robot("weird robot"),robots);
-        AUX_CLS.addElementToSet(new Robot("cleaning robot"),robots);
-        AUX_CLS.addElementToSet(new Robot("thinking robot"),robots);
+        AUX_CLS.addElementToSet(new Robot("flying robot"), robots);
+        AUX_CLS.addElementToSet(new Robot("weird robot"), robots);
+        AUX_CLS.addElementToSet(new Robot("cleaning robot"), robots);
+        AUX_CLS.addElementToSet(new Robot("thinking robot"), robots);
         AUX_CLS.printElementsFromSet(robots);
 
-        HashMap<Robot,Integer> robotsHashMap = new HashMap<>();
-        AUX_CLS.addRobotToMap(robotsHashMap,new Robot("flying robot"));
-        AUX_CLS.addRobotToMap(robotsHashMap,new Robot("weird robot"));
-        AUX_CLS.addRobotToMap(robotsHashMap,new Robot("cleaning robot"));
-        AUX_CLS.addRobotToMap(robotsHashMap,new Robot("thinking robot"));
+        HashMap<Robot, Integer> robotsHashMap = new HashMap<>();
+        AUX_CLS.addRobotToMap(robotsHashMap, new Robot("flying robot"), 30);
+        AUX_CLS.addRobotToMap(robotsHashMap, new Robot("weird robot"), 29);
+        AUX_CLS.addRobotToMap(robotsHashMap, new Robot("cleaning robot"), 90);
+        AUX_CLS.addRobotToMap(robotsHashMap, new Robot("thinking robot"), 87);
         AUX_CLS.listAllMapElements(robotsHashMap);
 
 

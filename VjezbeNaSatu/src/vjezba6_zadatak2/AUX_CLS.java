@@ -7,6 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class AUX_CLS {
 
     private static final int MAXI = 100;
+
     public static void addNewUser(User user, Map<Integer, String> users) {
         if (users.containsKey(user.getUserId())) {
             System.out.println("user is already added");
@@ -57,12 +58,12 @@ public class AUX_CLS {
         }
     }
 
-    public static void addRobotToMap(Map<Robot, Integer> robots, Robot robot) {
-        if (robots.containsKey(robot)){
+    public static <K, V> void addRobotToMap(Map<K, V> map, K key, V value) {
+        if (map.containsKey(key)) {
             System.out.println("robot is already in map");
         } else {
-            robots.put(robot, randomIntValue());
-            System.out.println("new robot added: " + robot.getDescription());
+            map.put(key, value);
+            System.out.println("new element added");
         }
     }
 
