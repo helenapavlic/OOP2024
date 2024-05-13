@@ -58,13 +58,12 @@ public class ClientApp {
                     int cont = scanner.nextInt();
                     System.out.println("you choose to proceed...");
                 } else {
-                    System.out.println("you choose to exit");
                     proceedInput = false;
+                    scanner.close();
+                    System.out.println("you choose to exit");
                 }
             }
-
         }
-
 
     }
 }
