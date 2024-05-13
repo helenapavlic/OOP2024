@@ -1,6 +1,6 @@
 package pckg_exceptions1;
 
-public class IndustrialRobot extends Robot{
+public class IndustrialRobot extends Robot {
     protected IndustrialRobot(String name) {
         super(name);
     }
