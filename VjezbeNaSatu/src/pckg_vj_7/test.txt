@@ -1,0 +1,6 @@
+car
+helicopeter
+electronic bike
+truck
+motorcycle
+carriage
