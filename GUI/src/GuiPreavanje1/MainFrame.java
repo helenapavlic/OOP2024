@@ -6,15 +6,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame {
-//    elements in frame
+    //    elements in frame
 //    now we modify this code to separate textPanel from this frame in separate class
 //    now we are using class TextPanel instead of object of JTextArea
     private TextPanel textPanel;
     private JButton button;
     private ToolBar toolBar;
+    private ToolBarListener toolBarListener;
 
-//    konstruktor
-    public MainFrame(){
+    //    konstruktor
+    public MainFrame() {
         super("PrvaApp"); // title in window
 
 //        ----------------------------------------
@@ -23,10 +24,11 @@ public class MainFrame extends JFrame {
         setLayout(new BorderLayout()); // using border layout
         createComponents(); // method for creating components -> this one just creates components, it does not display them
 //        positioning elements in frame using borderLayout
-        add(toolBar,BorderLayout.NORTH);
-        add(button,BorderLayout.SOUTH);
-        add(textPanel,BorderLayout.CENTER);
-        toolBar.setTextPanel(textPanel);
+        add(toolBar, BorderLayout.NORTH);
+        add(button, BorderLayout.SOUTH);
+        add(textPanel, BorderLayout.CENTER);
+        //toolBar.setTextPanel(textPanel);
+        toolBar.setToolBarListener(toolBarListener);
 
 //        ----------------------------------------
 //        activating components
@@ -35,7 +37,7 @@ public class MainFrame extends JFrame {
 
 //        main actions
 
-        setSize(700,550); // dimensions of window
+        setSize(700, 550); // dimensions of window
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // exit on close
         setLocationRelativeTo(null); // center a window
         setVisible(true); // set visible
@@ -44,11 +46,23 @@ public class MainFrame extends JFrame {
 
     private void createComponents() {
         toolBar = new ToolBar();
+        toolBarListener = new ToolBarListener() {
+            @Override
+            public void sendTxtFileContent(String string) {
+                textPanel.setText(string);
+            }
+
+            @Override
+            public void clearText() {
+                textPanel.clearAll();
+
+            }
+        };
         button = new JButton("Click here");
         textPanel = new TextPanel();
     }
 
-    private void activateComponents(){
+    private void activateComponents() {
 
 //        anonymous class for action listener -> later this will be separate class
         button.addActionListener(new ActionListener() {

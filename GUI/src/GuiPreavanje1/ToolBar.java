@@ -9,9 +9,10 @@ import java.io.*;
 public class ToolBar extends JPanel implements ActionListener {
     private JButton clearButton;
     private JButton loadFileButton;
-    private TextPanel textPanel;
+    //private TextPanel textPanel;
+    private ToolBarListener toolBarListener;
 
-    public ToolBar(){
+    public ToolBar() {
         createComponents();
         setLayout(new FlowLayout(FlowLayout.LEFT));
         add(clearButton);
@@ -34,26 +35,30 @@ public class ToolBar extends JPanel implements ActionListener {
         BufferedReader bufferedReader;
         StringBuilder stringBuilder = null;
 
-        if (event.getSource() == clearButton){
-            textPanel.getTextArea().selectAll();
-            textPanel.getTextArea().replaceSelection(" ");
+        if (event.getSource() == clearButton) {
+//            textPanel.getTextArea().selectAll();
+//            textPanel.getTextArea().replaceSelection(" ");
+            toolBarListener.clearText();
         } else if (event.getSource() == loadFileButton) {
             JFileChooser fileChooser = new JFileChooser();
             int val = fileChooser.showOpenDialog(this);
-            if (val == JFileChooser.APPROVE_OPTION){
+
+            if (val == JFileChooser.APPROVE_OPTION) {
+
                 File file = fileChooser.getSelectedFile();
                 try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
+                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
                     String line = null;
                     stringBuilder = new StringBuilder();
-                    while ((line = bufferedReader.readLine())!=null){
+                    while ((line = bufferedReader.readLine()) != null) {
                         stringBuilder.append(line);
                         stringBuilder.append("\n");
                     }
 
                     bufferedReader.close();
 
-                    textPanel.getTextArea().setText(stringBuilder.toString());
+                    //textPanel.getTextArea().setText(stringBuilder.toString());
+                    toolBarListener.sendTxtFileContent(stringBuilder.toString());
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -63,7 +68,12 @@ public class ToolBar extends JPanel implements ActionListener {
 
         }
     }
-    public void setTextPanel(TextPanel textPanel){
-        this.textPanel = textPanel;
+
+//    public void setTextPanel(TextPanel textPanel) {
+//        this.textPanel = textPanel;
+//    }
+
+    public void setToolBarListener(ToolBarListener toolBarListener) {
+        this.toolBarListener = toolBarListener;
     }
 }

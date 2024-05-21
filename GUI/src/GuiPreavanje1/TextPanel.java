@@ -6,17 +6,17 @@ import java.awt.*;
 public class TextPanel extends JPanel {
     private JTextArea textArea;
 
-    public TextPanel(){
+    public TextPanel() {
         setLayout(new BorderLayout());
         createComponents();
-        add(textArea,BorderLayout.CENTER);
+        add(textArea, BorderLayout.CENTER);
     }
 
     private void createComponents() {
         textArea = new JTextArea();
     }
 
-    public void setText(String text){
+    public void setText(String text) {
         textArea.append(text + "\n");
     }
 
@@ -26,5 +26,10 @@ public class TextPanel extends JPanel {
 
     public void setTextArea(JTextArea textArea) {
         this.textArea = textArea;
+    }
+
+    public void clearAll() {
+        textArea.selectAll();
+        textArea.replaceSelection(null);
     }
 }
