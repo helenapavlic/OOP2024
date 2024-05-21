@@ -11,6 +11,7 @@ public class MainFrame extends JFrame {
 //    now we are using class TextPanel instead of object of JTextArea
     private TextPanel textPanel;
     private JButton button;
+    private ToolBar toolBar;
 
 //    konstruktor
     public MainFrame(){
@@ -22,8 +23,10 @@ public class MainFrame extends JFrame {
         setLayout(new BorderLayout()); // using border layout
         createComponents(); // method for creating components -> this one just creates components, it does not display them
 //        positioning elements in frame using borderLayout
+        add(toolBar,BorderLayout.NORTH);
         add(button,BorderLayout.SOUTH);
         add(textPanel,BorderLayout.CENTER);
+        toolBar.setTextPanel(textPanel);
 
 //        ----------------------------------------
 //        activating components
@@ -40,6 +43,7 @@ public class MainFrame extends JFrame {
     }
 
     private void createComponents() {
+        toolBar = new ToolBar();
         button = new JButton("Click here");
         textPanel = new TextPanel();
     }

@@ -19,4 +19,12 @@ public class TextPanel extends JPanel {
     public void setText(String text){
         textArea.append(text + "\n");
     }
+
+    public JTextArea getTextArea() {
+        return textArea;
+    }
+
+    public void setTextArea(JTextArea textArea) {
+        this.textArea = textArea;
+    }
 }
