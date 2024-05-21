@@ -7,7 +7,9 @@ import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame {
 //    elements in frame
-    private JTextArea textArea;
+//    now we modify this code to separate textPanel from this frame in separate class
+//    now we are using class TextPanel instead of object of JTextArea
+    private TextPanel textPanel;
     private JButton button;
 
 //    konstruktor
@@ -21,7 +23,7 @@ public class MainFrame extends JFrame {
         createComponents(); // method for creating components -> this one just creates components, it does not display them
 //        positioning elements in frame using borderLayout
         add(button,BorderLayout.SOUTH);
-        add(textArea,BorderLayout.CENTER);
+        add(textPanel,BorderLayout.CENTER);
 
 //        ----------------------------------------
 //        activating components
@@ -39,7 +41,7 @@ public class MainFrame extends JFrame {
 
     private void createComponents() {
         button = new JButton("Click here");
-        textArea = new JTextArea();
+        textPanel = new TextPanel();
     }
 
     private void activateComponents(){
@@ -48,7 +50,7 @@ public class MainFrame extends JFrame {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textArea.append("clicked button \n");
+                textPanel.setText("clicked button");
             }
         });
     }
