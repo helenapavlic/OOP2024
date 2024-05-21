@@ -34,7 +34,6 @@ public class MainFrame extends JFrame {
 //        activating components
         activateComponents();
 
-
 //        main actions
 
         setSize(700, 550); // dimensions of window
