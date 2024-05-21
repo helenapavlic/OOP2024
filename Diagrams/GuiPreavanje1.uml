@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>GuiPreavanje1</OriginalElement>
+  <nodes>
+    <node x="628.1544952709118" y="419.4075630252101">GuiPreavanje1.ToolBarListener</node>
+    <node x="175.5" y="419.40756302521004">GuiPreavanje1.ToolBar</node>
+    <node x="-13.331780410909118" y="710.3508403361345">GuiPreavanje1.TextPanel</node>
+    <node x="330.12552301255226" y="1008.294117647059">GuiPreavanje1.App</node>
+    <node x="323.5156698662728" y="710.3508403361345">GuiPreavanje1.MainFrame</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="GuiPreavanje1.MainFrame" target="GuiPreavanje1.TextPanel" relationship="TO_ONE">
+      <point x="-122.5" y="0.0" />
+      <point x="113.5" y="0.0" />
+    </edge>
+    <edge source="GuiPreavanje1.App" target="GuiPreavanje1.MainFrame" relationship="CREATE">
+      <point x="31.890146853720523" y="-27.0" />
+      <point x="0.0" y="85.0" />
+    </edge>
+    <edge source="GuiPreavanje1.MainFrame" target="GuiPreavanje1.ToolBar" relationship="CREATE">
+      <point x="0.0" y="-85.0" />
+      <point x="118.01566986627279" y="96.5" />
+    </edge>
+    <edge source="GuiPreavanje1.ToolBar" target="GuiPreavanje1.ToolBarListener" relationship="TO_ONE">
+      <point x="152.5" y="4.3697478997728467E-4" />
+      <point x="599.0" y="515.908" />
+      <point x="599.0" y="457.908" />
+      <point x="-125.00049527091176" y="4.3697478992044125E-4" />
+    </edge>
+    <edge source="GuiPreavanje1.MainFrame" target="GuiPreavanje1.ToolBar" relationship="TO_ONE">
+      <point x="15.0" y="-85.0" />
+      <point x="133.0156698662728" y="96.5" />
+    </edge>
+    <edge source="GuiPreavanje1.MainFrame" target="GuiPreavanje1.ToolBarListener" relationship="TO_ONE">
+      <point x="122.50033013372718" y="1.5966386547461298E-4" />
+      <point x="599.0" y="795.351" />
+      <point x="599.0" y="457.908" />
+      <point x="-125.00049527091176" y="4.3697478992044125E-4" />
+    </edge>
+    <edge source="GuiPreavanje1.MainFrame" target="GuiPreavanje1.TextPanel" relationship="CREATE">
+      <point x="-122.5" y="15.0" />
+      <point x="113.5" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.8638554216867471" showDependencies="true" x="429.2622036262203" y="758.5244072524407" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
