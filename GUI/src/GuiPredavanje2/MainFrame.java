@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame extends JFrame {
+//    todo: Nakon svake potvrde u lijevom, odnosno desnom panelu i pripadnog ažuriranja komponente View potrebno je resetirati stanje svih komponenti
     private FormPanel formPanel;
     private TextPanel textPanel;
     private ToolBar toolBar;
@@ -70,12 +71,20 @@ public class MainFrame extends JFrame {
                 String gcText = rfe.getGcText();
                 String delivery = rfe.getDelivery();
 
-                System.out.println("Kategorija proizvoda: " + productCat);
-                System.out.println("Gift card: " + giftCard);
-                System.out.println("Gift card short text: " + gcText);
-                System.out.println("Decorative package: " + decorativeBox);
-                System.out.println("Send me newsletters: " + newsLetter);
-                System.out.println("Payment method: " + payment + ", delivery: " + delivery);
+//                System.out.println("Kategorija proizvoda: " + productCat);
+//                System.out.println("Gift card: " + giftCard);
+//                System.out.println("Gift card short text: " + gcText);
+//                System.out.println("Decorative package: " + decorativeBox);
+//                System.out.println("Send me newsletters: " + newsLetter);
+//                System.out.println("Payment method: " + payment + ", delivery: " + delivery);
+                textPanel.writeText("Kategorija proizvoda: " + productCat);
+                textPanel.writeText("Gift card: " + giftCard);
+                textPanel.writeText("Short text for gift card: " + gcText);
+                textPanel.writeText("Decorative package: " + decorativeBox);
+                textPanel.writeText("Newsletters: " + newsLetter);
+                textPanel.writeText("Payment method: " + payment);
+                textPanel.writeText("Delivery: " + delivery);
+                textPanel.writeText("-------------------------------------------");
 
             }
         });

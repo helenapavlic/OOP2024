@@ -5,15 +5,18 @@ import java.awt.*;
 
 public class TextPanel extends JPanel {
     private JTextArea textArea;
+    private JScrollPane scrollPane;
 
     public TextPanel() {
         setLayout(new BorderLayout());
         createComponents();
-        add(textArea, BorderLayout.CENTER);
+        add(scrollPane, BorderLayout.CENTER);
+        textArea.setMargin(new Insets(10,10,10,10)); // added padding
     }
 
     private void createComponents() {
         textArea = new JTextArea();
+        scrollPane = new JScrollPane(textArea);
     }
 
     public void writeText(String text) {
@@ -23,6 +26,6 @@ public class TextPanel extends JPanel {
 
     public void clearTextArea() {
         textArea.selectAll();
-        textArea.replaceSelection(" ");
+        textArea.replaceSelection(null);
     }
 }

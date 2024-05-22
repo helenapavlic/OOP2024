@@ -105,7 +105,7 @@ public class RightPanel extends JPanel {
         gbc.gridy = 4;
         gbc.anchor = GridBagConstraints.LAST_LINE_START;
         gbc.insets = new Insets(0, 25, 15, 15);
-        add(confirmBtn,gbc);
+        add(confirmBtn, gbc);
 
     }
 
@@ -164,7 +164,7 @@ public class RightPanel extends JPanel {
         giftCard.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (giftCard.isSelected()){
+                if (giftCard.isSelected()) {
                     giftText.setEnabled(true);
                     giftTxtLabel.setEnabled(true);
                 } else {
@@ -177,7 +177,7 @@ public class RightPanel extends JPanel {
         confirmBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int category = lista.getSelectedIndex();
+                int category = lista.getSelectedIndex() + 1;
                 boolean gCard = giftCard.isSelected();
                 boolean decPackaging = gftDecorativeBox.isSelected();
                 boolean newsLttr = newsLetter.isSelected();
@@ -186,7 +186,7 @@ public class RightPanel extends JPanel {
                 String payement = (String) payCombo.getSelectedItem();
                 String gcText = giftText.getText();
 
-                if (radioButtonExpress.isSelected()){
+                if (radioButtonExpress.isSelected()) {
                     delivery = "Express";
                 } else {
                     delivery = "Normal";
@@ -201,7 +201,7 @@ public class RightPanel extends JPanel {
                 rightFormEvent.setPayment(payement);
                 rightFormEvent.setProductCat(category);
 
-                if (formListener != null){
+                if (formListener != null) {
                     formListener.rightPanelEventOccurred(rightFormEvent);
                 }
             }
