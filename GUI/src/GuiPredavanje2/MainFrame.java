@@ -30,6 +30,7 @@ public class MainFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // exit on close
         setLocationRelativeTo(null); // center a window
         setVisible(true); // set visible
+        setResizable(false); // resizable
     }
 
     private void createComponentsMainFrame() {
