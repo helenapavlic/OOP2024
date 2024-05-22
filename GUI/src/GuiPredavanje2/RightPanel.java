@@ -204,9 +204,22 @@ public class RightPanel extends JPanel {
                 if (formListener != null) {
                     formListener.rightPanelEventOccurred(rightFormEvent);
                 }
+
+                resetForm();
             }
         });
+    }
 
+    private void resetForm() {
+        lista.setSelectedIndex(0);
+        payCombo.setSelectedIndex(2);
+        giftCard.setSelected(false);
+        newsLetter.setSelected(false);
+        gftDecorativeBox.setSelected(false);
+        giftText.setEnabled(false);
+        giftTxtLabel.setEnabled(false);
+        giftText.setText(null);
+        radioButtonNormal.setSelected(true);
     }
 
     public void setRightFormListener(FormListener listener) {
