@@ -108,7 +108,6 @@ public class LeftPanel extends JPanel {
                 String city = cityField.getText();
                 String mail = mailField.getText();
 
-                //nastavi
                 LeftFormEvent leftFormEvent = new LeftFormEvent(this);
                 leftFormEvent.setName(name);
                 leftFormEvent.setCity(city);
@@ -117,9 +116,17 @@ public class LeftPanel extends JPanel {
                 if (leftFormListener != null){
                     leftFormListener.leftPanelEventOccurred(leftFormEvent);
                 }
+
+                resetForm();
             }
         });
 
+    }
+
+    private void resetForm(){
+        nameField.setText(null);
+        cityField.setText(null);
+        mailField.setText(null);
     }
 
     public void setLeftFormListener(FormListener leftFormListener) {
