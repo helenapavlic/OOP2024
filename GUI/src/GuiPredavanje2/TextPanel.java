@@ -23,6 +23,6 @@ public class TextPanel extends JPanel {
 
     public void clearTextArea() {
         textArea.selectAll();
-        textArea.replaceSelection(null);
+        textArea.replaceSelection(" ");
     }
 }

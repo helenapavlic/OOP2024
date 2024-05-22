@@ -4,13 +4,14 @@ package GuiPredavanje2;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainFrame extends JFrame{
-    FormPanel formPanel;
-    TextPanel textPanel;
-    ToolBar toolBar;
+public class MainFrame extends JFrame {
+    private FormPanel formPanel;
+    private TextPanel textPanel;
+    private ToolBar toolBar;
+    private ToolBarListener toolBarListener;
 
-    public MainFrame(){
-        super("kljsafdlkjasfčdlkjasdf"); // title in window
+    public MainFrame() {
+        super("GUI 2"); // title in window
 
 //        ----------------------------------------
 //        adding components to window
@@ -19,16 +20,9 @@ public class MainFrame extends JFrame{
         createComponentsMainFrame(); // method for creating components -> this one just creates components, it does not display them
 //        positioning elements in frame using borderLayout
         add(toolBar, BorderLayout.NORTH);
-        add(textPanel,BorderLayout.CENTER);
-        add(formPanel,BorderLayout.SOUTH);
-        //add(button, BorderLayout.SOUTH);
-        //add(textPanel, BorderLayout.CENTER);
-        //toolBar.setTextPanel(textPanel);
-        //toolBar.setToolBarListener(toolBarListener);
-
-//        ----------------------------------------
-//        activating components
-        //activateComponents();
+        add(textPanel, BorderLayout.CENTER);
+        add(formPanel, BorderLayout.SOUTH);
+        toolBar.setToolBarListener(toolBarListener);
 
 //        main actions
 
@@ -40,8 +34,51 @@ public class MainFrame extends JFrame{
 
     private void createComponentsMainFrame() {
         toolBar = new ToolBar();
-        textPanel  = new TextPanel();
+        textPanel = new TextPanel();
         formPanel = new FormPanel();
+
+        toolBarListener = new ToolBarListener() {
+            @Override
+            public void setTextFromFile(String text) {
+                textPanel.writeText(text);
+            }
+
+            @Override
+            public void clearAllText() {
+                textPanel.clearTextArea();
+            }
+        };
+        formPanel.setFormListener(new FormListener() {
+            @Override
+            public void leftPanelEventOccurred(LeftFormEvent lfe) {
+                String city = lfe.getCity();
+                String mail = lfe.getMail();
+                String name = lfe.getName();
+
+                textPanel.writeText(name + " | " + city + " | " + mail);
+
+            }
+
+            @Override
+            public void rightPanelEventOccurred(RightFormEvent rfe) {
+
+                int productCat = rfe.getProductCat();
+                boolean giftCard = rfe.isGiftCard();
+                boolean decorativeBox = rfe.isDecorativePack();
+                boolean newsLetter = rfe.isNewsLetter();
+                String payment = rfe.getPayment();
+                String gcText = rfe.getGcText();
+                String delivery = rfe.getDelivery();
+
+                System.out.println("Kategorija proizvoda: " + productCat);
+                System.out.println("Gift card: " + giftCard);
+                System.out.println("Gift card short text: " + gcText);
+                System.out.println("Decorative package: " + decorativeBox);
+                System.out.println("Send me newsletters: " + newsLetter);
+                System.out.println("Payment method: " + payment + ", delivery: " + delivery);
+
+            }
+        });
 
     }
 }

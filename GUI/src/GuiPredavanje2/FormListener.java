@@ -1,6 +1,8 @@
 package GuiPredavanje2;
 
-public interface FormListener {
+import java.util.EventListener;
+
+public interface FormListener extends EventListener {
     void leftPanelEventOccurred(LeftFormEvent lfe);
     void rightPanelEventOccurred(RightFormEvent rfe);
 }

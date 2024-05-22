@@ -10,16 +10,16 @@ public class RightPanel extends JPanel {
 
     private JList lista;
     private JComboBox payCombo;
-    private JCheckBox gftCard;
-    private JCheckBox gftDecortiveBox;
+    private JCheckBox giftCard;
+    private JCheckBox gftDecorativeBox;
     private JCheckBox newsLetter;
     private JTextField giftText;
     private JLabel giftTxtLabel;
-    private JRadioButton rbtnExpr;
-    private JRadioButton rbntNrml;
-    private ButtonGroup rBtngroup;
+    private JRadioButton radioButtonExpress;
+    private JRadioButton radioButtonNormal;
+    private ButtonGroup buttonGroup;
     private JButton confirmBtn;
-    private FormListener fLst;
+    private FormListener formListener;
 
     public RightPanel() {
 
@@ -32,6 +32,7 @@ public class RightPanel extends JPanel {
 
     private void setRightLayout() {
 
+//        set elements to desire place using GridBagLayout
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         ///////////////////// First Column /////////////////////
@@ -50,12 +51,12 @@ public class RightPanel extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.anchor = GridBagConstraints.LINE_START;
-        add(gftCard, gbc);
+        add(giftCard, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.anchor = GridBagConstraints.LINE_START;
-        add(gftDecortiveBox, gbc);
+        add(gftDecorativeBox, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 4;
@@ -93,12 +94,12 @@ public class RightPanel extends JPanel {
         gbc.gridx = 2;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.LINE_START;
-        add(rbtnExpr, gbc);
+        add(radioButtonExpress, gbc);
 
         gbc.gridx = 2;
         gbc.gridy = 1;
         gbc.anchor = GridBagConstraints.FIRST_LINE_START;
-        add(rbntNrml, gbc);
+        add(radioButtonNormal, gbc);
 
         gbc.gridx = 2;
         gbc.gridy = 4;
@@ -132,20 +133,20 @@ public class RightPanel extends JPanel {
         payCombo.setModel(comboModel);
         payCombo.setSelectedIndex(2); // Select PayPal by default
 
-        gftCard = new JCheckBox("Gift Card");
-        gftDecortiveBox = new JCheckBox("Decorative box");
+        giftCard = new JCheckBox("Gift Card");
+        gftDecorativeBox = new JCheckBox("Decorative box");
         newsLetter = new JCheckBox("News Letters");
         giftText = new JTextField(10);
         giftTxtLabel = new JLabel("Short Gift Text:");
         giftText.setEnabled(false);
         giftTxtLabel.setEnabled(false);
 
-        rbtnExpr = new JRadioButton("Express delivery");
-        rbntNrml = new JRadioButton("Normal delivery");
-        rBtngroup = new ButtonGroup();
-        rBtngroup.add(rbtnExpr);
-        rBtngroup.add(rbntNrml);
-        rbntNrml.setSelected(true); // Select normal delivery by default
+        radioButtonExpress = new JRadioButton("Express delivery");
+        radioButtonNormal = new JRadioButton("Normal delivery");
+        buttonGroup = new ButtonGroup();
+        buttonGroup.add(radioButtonExpress);
+        buttonGroup.add(radioButtonNormal);
+        radioButtonNormal.setSelected(true); // Select normal delivery by default
 
         confirmBtn = new JButton("confirm");
 
@@ -160,13 +161,56 @@ public class RightPanel extends JPanel {
     }
 
     private void activateRightPanel() {
+        giftCard.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (giftCard.isSelected()){
+                    giftText.setEnabled(true);
+                    giftTxtLabel.setEnabled(true);
+                } else {
+                    giftText.setEnabled(false);
+                    giftTxtLabel.setEnabled(false);
+                }
+            }
+        });
 
+        confirmBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int category = lista.getSelectedIndex();
+                boolean gCard = giftCard.isSelected();
+                boolean decPackaging = gftDecorativeBox.isSelected();
+                boolean newsLttr = newsLetter.isSelected();
+                String delivery = null;
+
+                String payement = (String) payCombo.getSelectedItem();
+                String gcText = giftText.getText();
+
+                if (radioButtonExpress.isSelected()){
+                    delivery = "Express";
+                } else {
+                    delivery = "Normal";
+                }
+
+                RightFormEvent rightFormEvent = new RightFormEvent(confirmBtn);
+                rightFormEvent.setDelivery(delivery);
+                rightFormEvent.setGcText(gcText);
+                rightFormEvent.setDecorativePack(decPackaging);
+                rightFormEvent.setGiftCard(gCard);
+                rightFormEvent.setNewsLetter(newsLttr);
+                rightFormEvent.setPayment(payement);
+                rightFormEvent.setProductCat(category);
+
+                if (formListener != null){
+                    formListener.rightPanelEventOccurred(rightFormEvent);
+                }
+            }
+        });
 
     }
 
     public void setRightFormListener(FormListener listener) {
-
-        this.fLst = listener;
+        this.formListener = listener;
     }
 
 }
