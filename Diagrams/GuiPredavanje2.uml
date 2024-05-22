@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>GuiPredavanje2</OriginalElement>
+  <nodes>
+    <node x="-194.63086081929242" y="985.6295090187712">GuiPredavanje2.LeftFormEvent</node>
+    <node x="-214.95621942797254" y="1308.8646741881248">GuiPredavanje2.ToolBarListener</node>
+    <node x="300.7366684510874" y="744.7844231995848">GuiPredavanje2.FormPanel</node>
+    <node x="31.135023668809225" y="753.985158504763">GuiPredavanje2.TextPanel</node>
+    <node x="-248.66130123478828" y="1450.0752737639805">GuiPredavanje2.ToolBar</node>
+    <node x="839.4018324730031" y="1041.144034785031">GuiPredavanje2.RightFormEvent</node>
+    <node x="-306.0474828817761" y="645.7098515132213">GuiPredavanje2.MainFrame</node>
+    <node x="455.4271291374438" y="1020.3049634963966">GuiPredavanje2.RightPanel</node>
+    <node x="641.4688455850599" y="782.80653175811">GuiPredavanje2.FormListener</node>
+    <node x="72.77812181608562" y="998.981467911057">GuiPredavanje2.LeftPanel</node>
+    <node x="39.16753122904046" y="615.6504597610249">GuiPredavanje2.App</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="GuiPredavanje2.FormPanel" target="GuiPredavanje2.RightPanel" relationship="CREATE">
+      <point x="25.690460686356403" y="97.0" />
+      <point x="-145.0" y="-235.0" />
+    </edge>
+    <edge source="GuiPredavanje2.FormPanel" target="GuiPredavanje2.RightPanel" relationship="TO_ONE">
+      <point x="40.6904606863564" y="97.0" />
+      <point x="-130.0" y="-235.0" />
+    </edge>
+    <edge source="GuiPredavanje2.App" target="GuiPredavanje2.MainFrame" relationship="CREATE">
+      <point x="-84.0" y="0.0" />
+      <point x="138.5" y="-76.55939175219646" />
+    </edge>
+    <edge source="GuiPredavanje2.MainFrame" target="GuiPredavanje2.TextPanel" relationship="CREATE">
+      <point x="138.5" y="30.275306991541697" />
+      <point x="-104.5" y="-78.0" />
+    </edge>
+    <edge source="GuiPredavanje2.ToolBar" target="GuiPredavanje2.ToolBarListener" relationship="TO_ONE">
+      <point x="3.012347882815902E-4" y="-108.50027376398043" />
+      <point x="-96.161" y="1403.365" />
+      <point x="-246.0" y="1403.365" />
+      <point x="-246.0" y="1347.365" />
+      <point x="-113.49978057202745" y="3.2581187520008825E-4" />
+    </edge>
+    <edge source="GuiPredavanje2.MainFrame" target="GuiPredavanje2.ToolBar" relationship="CREATE">
+      <point x="-98.61381835301222" y="85.5" />
+      <point x="-266.1613012347883" y="1558.5752737639805" />
+      <point x="-152.5" y="0.0" />
+    </edge>
+    <edge source="GuiPredavanje2.MainFrame" target="GuiPredavanje2.FormPanel" relationship="CREATE">
+      <point x="138.5" y="-3.92542831363653" />
+      <point x="437.2366684510874" y="727.2844231995848" />
+      <point x="0.0" y="-97.0" />
+    </edge>
+    <edge source="GuiPredavanje2.LeftPanel" target="GuiPredavanje2.FormListener" relationship="TO_ONE">
+      <point x="-1.218160856240047E-4" y="-189.00046791105706" />
+      <point x="221.278" y="969.0" />
+      <point x="812.969" y="969.0" />
+      <point x="1.5441494019796664E-4" y="38.50046824188996" />
+    </edge>
+    <edge source="GuiPredavanje2.MainFrame" target="GuiPredavanje2.ToolBar" relationship="TO_ONE">
+      <point x="-113.61381835301222" y="85.5" />
+      <point x="-281.1613012347883" y="1573.5752737639805" />
+      <point x="-152.5" y="15.0" />
+    </edge>
+    <edge source="GuiPredavanje2.MainFrame" target="GuiPredavanje2.ToolBarListener" relationship="TO_ONE">
+      <point x="-44.58351711822391" y="85.5001484867787" />
+      <point x="-212.131" y="1133.5" />
+      <point x="-246.0" y="1133.5" />
+      <point x="-246.0" y="1347.365" />
+      <point x="-113.49978057202745" y="3.2581187520008825E-4" />
+    </edge>
+    <edge source="GuiPredavanje2.LeftPanel" target="GuiPredavanje2.LeftFormEvent" relationship="CREATE">
+      <point x="-148.5" y="-70.8519588922859" />
+      <point x="97.5" y="0.0" />
+    </edge>
+    <edge source="GuiPredavanje2.RightPanel" target="GuiPredavanje2.FormListener" relationship="TO_ONE">
+      <point x="-1.2913744376419345E-4" y="-234.99996349639662" />
+      <point x="607.927" y="969.0" />
+      <point x="812.969" y="969.0" />
+      <point x="1.5441494019796664E-4" y="38.50046824188996" />
+    </edge>
+    <edge source="GuiPredavanje2.RightPanel" target="GuiPredavanje2.RightFormEvent" relationship="CREATE">
+      <point x="152.5" y="55.339071288634386" />
+      <point x="-127.5" y="0.0" />
+    </edge>
+    <edge source="GuiPredavanje2.FormPanel" target="GuiPredavanje2.LeftPanel" relationship="CREATE">
+      <point x="-74.95854663500177" y="97.0" />
+      <point x="141.0" y="-189.0" />
+    </edge>
+    <edge source="GuiPredavanje2.FormPanel" target="GuiPredavanje2.LeftPanel" relationship="TO_ONE">
+      <point x="-129.0" y="97.0" />
+      <point x="86.95854663500177" y="-189.0" />
+    </edge>
+    <edge source="GuiPredavanje2.FormPanel" target="GuiPredavanje2.FormListener" relationship="TO_ONE">
+      <point x="3.315489126407556E-4" y="96.99957680041518" />
+      <point x="437.237" y="969.0" />
+      <point x="812.969" y="969.0" />
+      <point x="1.5441494019796664E-4" y="38.50046824188996" />
+    </edge>
+    <edge source="GuiPredavanje2.MainFrame" target="GuiPredavanje2.TextPanel" relationship="TO_ONE">
+      <point x="138.5" y="78.0" />
+      <point x="-104.5" y="-30.275306991541697" />
+    </edge>
+    <edge source="GuiPredavanje2.MainFrame" target="GuiPredavanje2.FormPanel" relationship="TO_ONE">
+      <point x="138.5" y="-18.92542831363653" />
+      <point x="452.2366684510874" y="712.2844231995848" />
+      <point x="15.0" y="-97.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.6589002795899348" showDependencies="true" x="404.0" y="1151.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
