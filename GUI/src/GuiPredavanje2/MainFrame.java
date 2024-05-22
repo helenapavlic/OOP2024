@@ -5,7 +5,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame extends JFrame {
-    //    todo: Nakon svake potvrde u lijevom, odnosno desnom panelu i pripadnog ažuriranja komponente View potrebno je resetirati stanje svih komponenti
     private FormPanel formPanel;
     private TextPanel textPanel;
     private ToolBar toolBar;
