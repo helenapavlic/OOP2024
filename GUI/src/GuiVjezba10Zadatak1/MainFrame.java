@@ -25,7 +25,7 @@ public class MainFrame extends JFrame {
         setLocationRelativeTo(null); // center a window
         setVisible(true); // set visible
         setResizable(false); // resizable
-        System.out.println("succesfull created main frame");
+        System.out.println("successful created main frame");
     }
 
     private void createComponents() {
