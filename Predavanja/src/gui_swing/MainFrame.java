@@ -1,6 +1,7 @@
 package gui_swing;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class MainFrame extends JFrame {
 
@@ -9,7 +10,7 @@ public class MainFrame extends JFrame {
     private FormPanel formPanel;
 
 
-    public MainFrame(){
+    public MainFrame() {
         super("simple form app");
         initMainFrame();
         initComponents();
@@ -23,17 +24,22 @@ public class MainFrame extends JFrame {
 
     private void layoutComponents() {
         //poreda komponente na mainFrameu
+        setLayout(new BorderLayout());
+        add(viewPanel, BorderLayout.CENTER);
+        add(toolBar, BorderLayout.NORTH);
+        add(formPanel, BorderLayout.SOUTH);
     }
 
     private void initComponents() {
         //inicjalizija elemenata
-
-
+        toolBar = new ToolBarPanel();
+        viewPanel = new ViewPanel();
+        formPanel = new FormPanel();
     }
 
     private void initMainFrame() {
 //        osnovni elementi
-        setSize(680,580);
+        setSize(680, 580);
         setVisible(true);
         setLocationRelativeTo(null);
         setResizable(false);
