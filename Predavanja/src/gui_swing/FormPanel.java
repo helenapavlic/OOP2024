@@ -7,11 +7,11 @@ public class FormPanel extends JPanel {
 
     private LeftPanel leftPanel;
     private RightPanel rightPanel;
+    private FormPanelListener formPanelListener;
 
     public FormPanel() {
         initComponents();
         layoutComponents();
-        activateComponents();
     }
 
     private void initComponents() {
@@ -22,13 +22,13 @@ public class FormPanel extends JPanel {
 
     private void layoutComponents() {
         setLayout(new BorderLayout());
-        add(leftPanel,BorderLayout.WEST);
-        add(rightPanel,BorderLayout.CENTER);
+        add(leftPanel, BorderLayout.WEST);
+        add(rightPanel, BorderLayout.CENTER);
     }
 
-    private void activateComponents() {
-
+    public void setFormPanelListener(FormPanelListener formPanelListener) {
+        this.formPanelListener = formPanelListener;
+        leftPanel.setFormPanelListener(formPanelListener);
+        rightPanel.setFormPanelListener(formPanelListener);
     }
-
-
 }

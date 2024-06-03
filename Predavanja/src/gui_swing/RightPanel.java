@@ -3,6 +3,8 @@ package gui_swing;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class RightPanel extends JPanel {
 
@@ -20,6 +22,7 @@ public class RightPanel extends JPanel {
     private JButton confirmButton;
 
     private JScrollPane listScrollPane;
+    private FormPanelListener formPanelListener;
 
     public RightPanel() {
         decorate();
@@ -29,6 +32,23 @@ public class RightPanel extends JPanel {
     }
 
     private void activatePanel() {
+        confirmButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (formPanelListener != null){
+                    String payment = paymentCombo.getSelectedItem().toString();
+                    String category = categoryList.getSelectedValue();
+                    String delivery = radioButtonGroup.getSelection().getActionCommand();
+                    boolean giftCard = giftCheckBox.isSelected();
+                    boolean decorativeBox = decorateCheckBox.isSelected();
+                    boolean specialGift = specialGiftCheckBox.isSelected();
+
+
+                    PurchaseData purchaseData = new PurchaseData(category,payment,delivery,decorativeBox,giftCard,specialGift);
+                    formPanelListener.rightPanelEventOccurred(new RightPanelEvent(this,purchaseData));
+                }
+            }
+        });
 
     }
 
@@ -139,4 +159,7 @@ public class RightPanel extends JPanel {
     }
 
 
+    public void setFormPanelListener(FormPanelListener formPanelListener) {
+        this.formPanelListener = formPanelListener;
+    }
 }

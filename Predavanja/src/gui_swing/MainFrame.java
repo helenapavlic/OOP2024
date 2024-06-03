@@ -33,6 +33,20 @@ public class MainFrame extends JFrame {
                 }
             }
         });
+
+        formPanel.setFormPanelListener(new FormPanelListener() {
+            @Override
+            public void leftPanelEventOccurred(LeftPanelEvent leftPanelEvent) {
+                Customer customer = leftPanelEvent.getCustomer();
+                viewPanel.setText(customer.toString());
+            }
+
+            @Override
+            public void rightPanelEventOccurred(RightPanelEvent rightPanelEvent) {
+                PurchaseData purchaseData = rightPanelEvent.getPurchaseData();
+                viewPanel.setText(purchaseData.toString());
+            }
+        });
     }
 
     private void layoutComponents() {
@@ -57,8 +71,6 @@ public class MainFrame extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-
     }
 
 }

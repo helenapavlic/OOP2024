@@ -3,12 +3,15 @@ package gui_swing;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class LeftPanel extends JPanel {
     private JTextField nameFiled;
     private JTextField cityField;
     private JTextField mailField;
     private JButton sendDataButton;
+    private FormPanelListener formPanelListener;
 
     public LeftPanel() {
 
@@ -25,7 +28,29 @@ public class LeftPanel extends JPanel {
     }
 
     private void activatePanel() {
+        sendDataButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (formPanelListener != null) {
+                    String name = nameFiled.getText();
+                    String city = cityField.getText();
+                    String mail = mailField.getText();
+                    Customer customer = new Customer(name, city, mail);
+//                    System.out.println(customer);
 
+                    formPanelListener.leftPanelEventOccurred(new LeftPanelEvent(this, customer));
+                    resetLeftForm();
+                }
+            }
+        });
+
+    }
+
+    private void resetLeftForm() {
+        nameFiled.setText(null);
+        cityField.setText(null);
+        mailField.setText(null);
+        nameFiled.requestFocus();
     }
 
     private void layoutComponents() {
@@ -69,10 +94,13 @@ public class LeftPanel extends JPanel {
 
     private void decoratePanel() {
         Border outer = BorderFactory.createEmptyBorder(5, 5, 5, 5);
-        Border inner = BorderFactory.createTitledBorder("customer data");
+        Border inner = BorderFactory.createTitledBorder("customer data: ");
         Border border = BorderFactory.createCompoundBorder(outer, inner);
         setBorder(border);
 
     }
 
+    public void setFormPanelListener(FormPanelListener formPanelListener) {
+        this.formPanelListener = formPanelListener;
+    }
 }
