@@ -20,6 +20,13 @@ public class MainFrame extends JFrame {
 
     private void activateMainFrame() {
         //aktivira main frame
+//        anonimna klasa
+        toolBar.setToolBarListener(new ToolBarListener() {
+            @Override
+            public void ToolBarEventOccurred(ToolBarEvent toolBarEvent) {
+                System.out.println(toolBarEvent.getSomeString());
+            }
+        });
     }
 
     private void layoutComponents() {
