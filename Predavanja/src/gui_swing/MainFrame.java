@@ -24,7 +24,13 @@ public class MainFrame extends JFrame {
         toolBar.setToolBarListener(new ToolBarListener() {
             @Override
             public void ToolBarEventOccurred(ToolBarEvent toolBarEvent) {
-                System.out.println(toolBarEvent.getSomeString());
+                String someString = toolBarEvent.getSomeString();
+                if (someString.equals("SET TEXT")){
+                    viewPanel.setText(someString);
+                }
+                if (someString.equals("RESET")){
+                    viewPanel.resetViewPanel();
+                }
             }
         });
     }

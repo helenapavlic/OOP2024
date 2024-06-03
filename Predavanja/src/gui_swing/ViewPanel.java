@@ -28,4 +28,14 @@ public class ViewPanel extends JPanel {
         dimension.height = 230;
         setPreferredSize(dimension);
     }
+
+    public void setText(String someString) {
+        textArea.append(someString + "\n");
+    }
+
+    public void resetViewPanel() {
+        textArea.selectAll();
+        textArea.replaceSelection(null);
+        textArea.requestFocus();
+    }
 }
