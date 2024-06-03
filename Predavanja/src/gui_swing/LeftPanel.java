@@ -36,7 +36,6 @@ public class LeftPanel extends JPanel {
                     String city = cityField.getText();
                     String mail = mailField.getText();
                     Customer customer = new Customer(name, city, mail);
-//                    System.out.println(customer);
 
                     formPanelListener.leftPanelEventOccurred(new LeftPanelEvent(this, customer));
                     resetLeftForm();
