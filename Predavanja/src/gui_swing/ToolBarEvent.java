@@ -16,7 +16,7 @@ public class ToolBarEvent extends EventObject {
         super(source);
     }
 
-    public ToolBarEvent(Object source, String someString){
+    public ToolBarEvent(Object source, String someString) {
         super(source);
         this.someString = someString;
     }

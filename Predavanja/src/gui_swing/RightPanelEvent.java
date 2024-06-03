@@ -15,7 +15,7 @@ public class RightPanelEvent extends EventObject {
         super(source);
     }
 
-    public RightPanelEvent(Object source, PurchaseData purchaseData){
+    public RightPanelEvent(Object source, PurchaseData purchaseData) {
         super(source);
         this.purchaseData = purchaseData;
     }

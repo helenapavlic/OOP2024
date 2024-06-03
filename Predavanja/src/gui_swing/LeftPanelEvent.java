@@ -3,7 +3,7 @@ package gui_swing;
 import java.util.EventObject;
 
 public class LeftPanelEvent extends EventObject {
-    private  Customer customer;
+    private Customer customer;
 
     /**
      * Constructs a prototypical Event.
@@ -15,7 +15,7 @@ public class LeftPanelEvent extends EventObject {
         super(source);
     }
 
-    public LeftPanelEvent(Object source, Customer customer){
+    public LeftPanelEvent(Object source, Customer customer) {
         super(source);
         this.customer = customer;
     }

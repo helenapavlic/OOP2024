@@ -35,7 +35,7 @@ public class RightPanel extends JPanel {
         confirmButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (formPanelListener != null){
+                if (formPanelListener != null) {
                     String payment = paymentCombo.getSelectedItem().toString();
                     String category = categoryList.getSelectedValue();
                     String delivery = radioButtonGroup.getSelection().getActionCommand();
@@ -44,8 +44,8 @@ public class RightPanel extends JPanel {
                     boolean specialGift = specialGiftCheckBox.isSelected();
 
 
-                    PurchaseData purchaseData = new PurchaseData(category,payment,delivery,decorativeBox,giftCard,specialGift);
-                    formPanelListener.rightPanelEventOccurred(new RightPanelEvent(this,purchaseData));
+                    PurchaseData purchaseData = new PurchaseData(category, payment, delivery, decorativeBox, giftCard, specialGift);
+                    formPanelListener.rightPanelEventOccurred(new RightPanelEvent(this, purchaseData));
                 }
             }
         });
@@ -99,10 +99,8 @@ public class RightPanel extends JPanel {
         gridBagConstraints.gridy++;
         add(expressDelivery, gridBagConstraints);
 
-        gridBagConstraints.gridy+=4;
-        add(confirmButton,gridBagConstraints);
-
-
+        gridBagConstraints.gridy += 4;
+        add(confirmButton, gridBagConstraints);
 
 
     }
