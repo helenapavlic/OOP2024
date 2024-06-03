@@ -25,10 +25,10 @@ public class MainFrame extends JFrame {
             @Override
             public void ToolBarEventOccurred(ToolBarEvent toolBarEvent) {
                 String someString = toolBarEvent.getSomeString();
-                if (someString.equals("SET TEXT")){
+                if (someString.equals("SET TEXT")) {
                     viewPanel.setText(someString);
                 }
-                if (someString.equals("RESET")){
+                if (someString.equals("RESET")) {
                     viewPanel.resetViewPanel();
                 }
             }

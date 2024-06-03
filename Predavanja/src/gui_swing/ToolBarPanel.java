@@ -38,22 +38,20 @@ public class ToolBarPanel extends JPanel implements ActionListener {
     }
 
 
-//    slusa samo sebe u ovom slucaju
+    //    slusa samo sebe u ovom slucaju
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(setTextButton) && toolBarListener != null){
-            toolBarListener.ToolBarEventOccurred(new ToolBarEvent(this,setTextButton.getActionCommand()));
-            System.out.println(setTextButton.getActionCommand());
+        if (e.getSource().equals(setTextButton) && toolBarListener != null) {
+            toolBarListener.ToolBarEventOccurred(new ToolBarEvent(this, setTextButton.getActionCommand()));
         }
 
-        if (e.getSource().equals(resetViewPanelButton) && toolBarListener != null){
+        if (e.getSource().equals(resetViewPanelButton) && toolBarListener != null) {
             toolBarListener.ToolBarEventOccurred(new ToolBarEvent(this, resetViewPanelButton.getActionCommand()));
-            System.out.println(resetViewPanelButton.getActionCommand());
         }
 
     }
 
-//    setter za toolBarListener kojeg će contoller postaviti kako bi se logika mogla izvrsiti
+    //    setter za toolBarListener kojeg će contoller postaviti kako bi se logika mogla izvrsiti
 //    koji preko njega slusa sto se dogada na toolBaru
     public void setToolBarListener(ToolBarListener toolBarListener) {
         this.toolBarListener = toolBarListener;
