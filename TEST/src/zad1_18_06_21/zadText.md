@@ -1,0 +1,50 @@
+## Ispitni rok 18.6.2021. 
+### zadatak 1
+
+Napravite klasu INPUT_AUX koja ima metodu checkInput za 
+provjeru korisničkog unosa po principu 
+da za int ili double ispisuje poruku 
+Unexpected input i vraća false, 
+dok za string vraća true. Klasa treba 
+imati još dvije metode specificirane
+prema sljedećoj tablici:
+
+| metoda     | argumenti | povratni tip | opis                                                                    | naponema                                                                     |
+|------------|-----------|--------------|-------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| inList     | nema      | void         | provjera sadrži li lista stringova <br>korisnički unos                  | lista stringova je porizvoljna i predstavlja <br>static atribut klase        |
+| moreInputs | nema      | void         | omogućuje višestruke unose korisnika <br>dok korisnik ne zatraži prekid | provjera unos sa checkInput i potom traži <br>nalazi li se u listi stringova |
+|            |           |              |                                                                         |                                                                              |
+
+konzolni izlaz primjera:
+
+---
+
+Enter one word...
+
+34,5
+Unexpected input!!!
+Finish - 1 Yes - Other continue...
+
+w
+Next round...
+Enter one word...
+
+ovo
+Word: ovo is not in the list!
+Finish - 1 Yes - Other continue...
+
+4
+Next round...
+Enter one word...
+
+primjer
+Word: primjer is in the list!
+List: izraz, neki, traženi, again, enter, proba, primjer, example
+
+Finish - 1 Yes - Other continue...
+
+1
+
+Finished!
+
+---
