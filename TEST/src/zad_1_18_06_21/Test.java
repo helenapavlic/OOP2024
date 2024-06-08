@@ -1,6 +1,4 @@
-package zad1_18_06_21;
-
-import java.util.Scanner;
+package zad_1_18_06_21;
 
 public class Test {
     public static void main(String[] args) {

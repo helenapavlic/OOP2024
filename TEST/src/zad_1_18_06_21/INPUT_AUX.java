@@ -1,4 +1,4 @@
-package zad1_18_06_21;
+package zad_1_18_06_21;
 
 import java.util.Arrays;
 import java.util.Scanner;

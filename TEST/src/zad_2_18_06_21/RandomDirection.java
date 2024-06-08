@@ -1,4 +1,4 @@
-package Zad2_18_06_21;
+package zad_2_18_06_21;
 
 import java.util.Random;
 

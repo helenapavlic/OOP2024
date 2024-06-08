@@ -1,4 +1,4 @@
-package Zad2_18_06_21;
+package zad_2_18_06_21;
 
 public class Car extends Vehicle{
     private String model;
