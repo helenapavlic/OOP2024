@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>zad_1_07_07_23_gui</OriginalElement>
+  <nodes>
+    <node x="713.2707929745208" y="742.6875031947873">zad_1_07_07_23_gui.Student</node>
+    <node x="376.76388640238576" y="8.750737968726128">zad_1_07_07_23_gui.FormPanelListener</node>
+    <node x="569.074911855687" y="1315.899459707205">zad_1_07_07_23_gui.AUX_CLS</node>
+    <node x="339.9179439057359" y="1323.7793283786434">zad_1_07_07_23_gui.App</node>
+    <node x="-97.31943025915871" y="-13.638392888369651">zad_1_07_07_23_gui.FormPanelEvent</node>
+    <node x="532.8892294316543" y="208.7985574285633">zad_1_07_07_23_gui.FormPanel</node>
+    <node x="282.80011840739263" y="992.4933359900338">zad_1_07_07_23_gui.MainFrame</node>
+    <node x="261.4156619747928" y="686.7427288771509">zad_1_07_07_23_gui.ViewPanel</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="zad_1_07_07_23_gui.MainFrame" target="zad_1_07_07_23_gui.FormPanel" relationship="TO_ONE">
+      <point x="95.58911102426163" y="-131.5" />
+      <point x="-146.0" y="235.0" />
+    </edge>
+    <edge source="zad_1_07_07_23_gui.FormPanel" target="zad_1_07_07_23_gui.FormPanelListener" relationship="TO_ONE">
+      <point x="-137.1253430292685" y="-235.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="zad_1_07_07_23_gui.MainFrame" target="zad_1_07_07_23_gui.Student" relationship="TO_MANY">
+      <point x="162.0" y="-71.80583279524649" />
+      <point x="-155.0" y="143.5" />
+    </edge>
+    <edge source="zad_1_07_07_23_gui.FormPanel" target="zad_1_07_07_23_gui.FormPanelEvent" relationship="CREATE">
+      <point x="-153.5" y="-227.5" />
+      <point x="206.0" y="17.93695031693295" />
+    </edge>
+    <edge source="zad_1_07_07_23_gui.MainFrame" target="zad_1_07_07_23_gui.ViewPanel" relationship="TO_ONE">
+      <point x="0.0" y="-131.5" />
+      <point x="79.38445643259985" y="108.5" />
+    </edge>
+    <edge source="zad_1_07_07_23_gui.App" target="zad_1_07_07_23_gui.MainFrame" relationship="CREATE">
+      <point x="20.88217450165672" y="-39.0" />
+      <point x="0.0" y="131.5" />
+    </edge>
+    <edge source="zad_1_07_07_23_gui.MainFrame" target="zad_1_07_07_23_gui.Student" relationship="CREATE">
+      <point x="162.0" y="-56.80583279524649" />
+      <point x="-155.0" y="158.5" />
+    </edge>
+    <edge source="zad_1_07_07_23_gui.MainFrame" target="zad_1_07_07_23_gui.ViewPanel" relationship="CREATE">
+      <point x="-79.38445643259985" y="-131.5" />
+      <point x="0.0" y="108.5" />
+    </edge>
+    <edge source="zad_1_07_07_23_gui.MainFrame" target="zad_1_07_07_23_gui.FormPanel" relationship="CREATE">
+      <point x="154.5" y="-131.5" />
+      <point x="-87.08911102426163" y="235.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.5986973947895792" showDependencies="true" x="334.1833640167365" y="343.0752133891214" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -22,7 +22,6 @@ public class ToolBarPanel extends JPanel implements ActionListener {
 //        string naredba koja je vezana uz button
         setTextButton.setActionCommand("SET TEXT");
         resetViewPanelButton.setActionCommand("RESET");
-
     }
 
     private void layoutComponents() {

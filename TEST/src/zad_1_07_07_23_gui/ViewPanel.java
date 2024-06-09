@@ -24,6 +24,7 @@ public class ViewPanel extends JPanel {
     private void initComponents() {
         textArea = new JTextArea();
         scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+//        textArea.setEnabled(false);
     }
 
     private void initViewPanel() {
@@ -32,8 +33,8 @@ public class ViewPanel extends JPanel {
         setPreferredSize(dimension);
     }
 
-    public void setText(String someString) {
-        textArea.append(someString + "\n");
+    public void setText(String text) {
+        textArea.append(text + "\n");
     }
 
     public void resetViewPanel() {
