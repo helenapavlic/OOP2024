@@ -14,10 +14,10 @@ public class PlayerFrame extends JFrame {
         initMainFrame();
         initComponents();
         layoutComponents();
-        activateMainFrame();
+        activateFrame();
     }
 
-    private void activateMainFrame() {
+    private void activateFrame() {
 //        zadnje, postavlja listenere za svaki gumb koristeci anonimnu klasu
 
     }

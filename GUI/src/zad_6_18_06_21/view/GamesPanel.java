@@ -1,5 +1,7 @@
 package zad_6_18_06_21.view;
 
+import zad_6_18_06_21.model.FormListener;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -13,6 +15,7 @@ public class GamesPanel extends JPanel {
 
     private JTextField generatedId;
     private JScrollPane listScrollPane;
+    FormListener formListener;
 
     public GamesPanel() {
         Dimension dims = getPreferredSize();
@@ -97,5 +100,9 @@ public class GamesPanel extends JPanel {
         Border inner = BorderFactory.createTitledBorder("Games panel: ");
         Border border = BorderFactory.createCompoundBorder(outer, inner);
         setBorder(border);
+    }
+
+    public void setFormListener(FormListener formListener) {
+        this.formListener = formListener;
     }
 }

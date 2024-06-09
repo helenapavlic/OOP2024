@@ -1,5 +1,7 @@
 package zad_6_18_06_21.view;
 
+import zad_6_18_06_21.model.FormListener;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -14,6 +16,7 @@ public class BasicInfoPanel extends JPanel {
     private ButtonGroup buttonGroup;
 
 //   todo: action listenner i setters za njega!
+    private FormListener formListener;
 
     public BasicInfoPanel() {
 //        Dimension dims = getPreferredSize();
@@ -109,4 +112,7 @@ public class BasicInfoPanel extends JPanel {
         setBorder(border);
     }
 
+    public void setFormListener(FormListener formListener) {
+        this.formListener = formListener;
+    }
 }

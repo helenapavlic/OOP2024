@@ -46,9 +46,9 @@ public class ChoosePanel extends JPanel {
     private void initComponents() {
         searchCriteria = new JComboBox<>();
         DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>();
-        comboBoxModel.addElement(null);
-        comboBoxModel.addElement("Visa");
-        comboBoxModel.addElement("kjsafdoijčasdfj");
+        comboBoxModel.addElement("Selection...");
+        comboBoxModel.addElement("Player id");
+        comboBoxModel.addElement("Skills level");
         searchCriteria.setModel(comboBoxModel);
 
         activate = new JButton("Activate");

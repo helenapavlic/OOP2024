@@ -1,12 +1,17 @@
 package zad_6_18_06_21.view;
 
+import zad_6_18_06_21.model.FormListener;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ToolBar extends JPanel {
     private JButton subscribe;
     private JButton cancel;
     private JButton showInfo;
+    private FormListener formListener;
 
     public ToolBar(){
         initComponents();
@@ -15,6 +20,13 @@ public class ToolBar extends JPanel {
     }
 
     private void activateToolBar() {
+        subscribe.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
 
     }
 
@@ -32,5 +44,9 @@ public class ToolBar extends JPanel {
         cancel = new JButton("Cancel");
         showInfo = new JButton("Show info");
         showInfo.setEnabled(false);
+    }
+
+    public void setFormListener(FormListener formListener) {
+        this.formListener = formListener;
     }
 }

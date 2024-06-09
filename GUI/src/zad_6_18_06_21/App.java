@@ -1,5 +1,6 @@
 package zad_6_18_06_21;
 
+import zad_6_18_06_21.view.InfoFrame;
 import zad_6_18_06_21.view.PlayerFrame;
 
 import javax.swing.*;
