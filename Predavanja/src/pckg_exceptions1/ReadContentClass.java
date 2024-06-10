@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class ReadContentClass {
 
+//    TEXT DATOTEKA
+
     public static void readFromFile(String filePath) throws FileNotFoundException {
         File file = new File(filePath);
 //        try {
