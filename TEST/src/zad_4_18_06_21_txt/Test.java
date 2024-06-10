@@ -1,4 +1,4 @@
-package zad_4_18_06_21;
+package zad_4_18_06_21_txt;
 
 public class Test {
     public static void main(String[] args) {
@@ -6,7 +6,7 @@ public class Test {
         worldCup1.worldCupInYear(5);
 
         //Spremite te podatke u datoteku worldCup.txt
-        String fileName = "TEST/src/zad_4_18_06_21/worldCup.txt";
+        String fileName = "TEST/src/zad_4_18_06_21_txt/worldCup.txt";
         worldCup1.save2File(fileName);
 
         // Kreirajte i ispišite listu sudionika (4) za npr. 1990. godinu

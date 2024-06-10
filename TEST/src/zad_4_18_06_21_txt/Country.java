@@ -1,4 +1,4 @@
-package zad_4_18_06_21;
+package zad_4_18_06_21_txt;
 
 import java.util.ArrayList;
 import java.util.Arrays;
